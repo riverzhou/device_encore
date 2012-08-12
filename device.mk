@@ -137,6 +137,7 @@ PRODUCT_COPY_FILES += \
 
 # Product specfic packages
 PRODUCT_PACKAGES += \
+    hwcomposer.default \
     hwprops \
     overlay.omap3 \
     lights.encore \
