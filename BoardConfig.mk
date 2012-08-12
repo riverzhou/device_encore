@@ -25,22 +25,39 @@ BUILD_NETD := false
 -include vendor/bn/encore/BoardConfigVendor.mk
 
 TARGET_BOARD_PLATFORM := omap3
+
+
+#TARGET_CPU_ABI := armeabi-v7a
+#ARCH_ARM_HAVE_ARMV7A := true
+#TARGET_CPU_ABI2 := armeabi
+#TARGET_ARCH_VARIANT := armv7-a-neon
+#ARCH_ARM_HAVE_TLS_REGISTER := true
+##ARCH_ARM_USE_NON_NEON_MEMCPY := true
+#TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+## -fmodulo-sched -fmodulo-sched-allow-regmoves
+#TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+## -fmodulo-sched -fmodulo-sched-allow-regmoves
+#TARGET_arm_CFLAGS := -O3 -fomit-frame-pointer -fstrict-aliasing -funswitch-loops \
+#                       -fmodulo-sched -fmodulo-sched-allow-regmoves
+#TARGET_thumb_CFLAGS := -mthumb \
+#                        -Os \
+#                        -fomit-frame-pointer \
+#                        -fstrict-aliasing
+
+# Processor
 TARGET_CPU_ABI := armeabi-v7a
-ARCH_ARM_HAVE_ARMV7A := true
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_ARMV7A := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
-#ARCH_ARM_USE_NON_NEON_MEMCPY := true
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-# -fmodulo-sched -fmodulo-sched-allow-regmoves
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-# -fmodulo-sched -fmodulo-sched-allow-regmoves
-TARGET_arm_CFLAGS := -O3 -fomit-frame-pointer -fstrict-aliasing -funswitch-loops \
-                       -fmodulo-sched -fmodulo-sched-allow-regmoves
-TARGET_thumb_CFLAGS := -mthumb \
-                        -Os \
-                        -fomit-frame-pointer \
-                        -fstrict-aliasing
+
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon
+TARGET_arm_CFLAGS := -O2 -fomit-frame-pointer -fstrict-aliasing -funswitch-loops fmodulo-sched -fmodulo-sched-allow-regmoves
+TARGET_thumb_CFLAGS := -mthumb -Os -fomit-frame-pointer -fstrict-aliasing
+
+
 TARGET_BOOTLOADER_BOARD_NAME := encore
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -82,37 +99,64 @@ BOARD_USES_UBOOT := true
 # and copy the contents into kernel/bn/encore (these will need to be created in your android source dir)
 TARGET_KERNEL_CONFIG := encore_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/encore
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 # Fallback prebuilt kernel
 #TARGET_PREBUILT_KERNEL := device/bn/encore/prebuilt/boot/kernel
 
+## Connectivity - Wi-Fi
+#USES_TI_MAC80211 := true
+#ifdef USES_TI_MAC80211
+#BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+#WPA_SUPPLICANT_VERSION           := VER_0_8_X
+#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
+#BOARD_WLAN_DEVICE                := wl12xx_mac80211
+#BOARD_SOFTAP_DEVICE              := wl12xx_mac80211
+#WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlcore_sdio.ko"
+#WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
+#WIFI_FIRMWARE_LOADER             := ""
+#COMMON_GLOBAL_CFLAGS             += -DUSES_TI_MAC80211
+#endif
+#
+#TARGET_MODULES_SOURCE := "hardware/ti/wlan/mac80211/compat_wl12xx"
+#
+#WIFI_MODULES:
+#	make -C $(TARGET_MODULES_SOURCE) KERNEL_DIR=$(KERNEL_OUT) KLIB=$(KERNEL_OUT) KLIB_BUILD=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE)
+#	mv $(KERNEL_OUT)/lib/crc7.ko $(KERNEL_MODULES_OUT)
+#	mv hardware/ti/wlan/mac80211/compat_wl12xx/compat/compat.ko $(KERNEL_MODULES_OUT)
+#	mv hardware/ti/wlan/mac80211/compat_wl12xx/net/mac80211/mac80211.ko $(KERNEL_MODULES_OUT)
+#	mv hardware/ti/wlan/mac80211/compat_wl12xx/net/wireless/cfg80211.ko $(KERNEL_MODULES_OUT)
+#	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/ti/wl12xx/wl12xx.ko $(KERNEL_MODULES_OUT)
+#	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/ti/wlcore/wlcore.ko $(KERNEL_MODULES_OUT)
+#	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/ti/wlcore/wlcore_sdio.ko $(KERNEL_MODULES_OUT)
+#
+#TARGET_KERNEL_MODULES := WIFI_MODULES
+#
+
 # Connectivity - Wi-Fi
-USES_TI_MAC80211 := true
-ifdef USES_TI_MAC80211
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
 BOARD_WLAN_DEVICE                := wl12xx_mac80211
 BOARD_SOFTAP_DEVICE              := wl12xx_mac80211
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlcore_sdio.ko"
-WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
+WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
 WIFI_FIRMWARE_LOADER             := ""
 COMMON_GLOBAL_CFLAGS             += -DUSES_TI_MAC80211
-endif
 
-TARGET_MODULES_SOURCE := "hardware/ti/wlan/mac80211/compat_wl12xx"
-
-WIFI_MODULES:
-	make -C $(TARGET_MODULES_SOURCE) KERNEL_DIR=$(KERNEL_OUT) KLIB=$(KERNEL_OUT) KLIB_BUILD=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE)
-	mv $(KERNEL_OUT)/lib/crc7.ko $(KERNEL_MODULES_OUT)
+KERNEL_EXTERNAL_MODULES:
+	make clean -C hardware/ti/wlan/mac80211/compat_wl12xx
+	make -C hardware/ti/wlan/mac80211/compat_wl12xx KERNEL_DIR=$(KERNEL_OUT) KLIB=$(KERNEL_OUT) KLIB_BUILD=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE="arm-eabi-"
 	mv hardware/ti/wlan/mac80211/compat_wl12xx/compat/compat.ko $(KERNEL_MODULES_OUT)
 	mv hardware/ti/wlan/mac80211/compat_wl12xx/net/mac80211/mac80211.ko $(KERNEL_MODULES_OUT)
 	mv hardware/ti/wlan/mac80211/compat_wl12xx/net/wireless/cfg80211.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/ti/wl12xx/wl12xx.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/ti/wlcore/wlcore.ko $(KERNEL_MODULES_OUT)
-	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/ti/wlcore/wlcore_sdio.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx_spi.ko $(KERNEL_MODULES_OUT)
+	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx_sdio.ko $(KERNEL_MODULES_OUT)
 
-TARGET_KERNEL_MODULES := WIFI_MODULES
+#$(KERNEL_OUT)
+
+TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
+
 
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_RECOVERY_IGNORE_BOOTABLES := true
