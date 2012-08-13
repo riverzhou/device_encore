@@ -22,10 +22,6 @@ DEVICE_PACKAGE_OVERLAYS += device/bn/encore/overlay
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
-# Prebuilt /system/media
-PRODUCT_COPY_FILES += \
-    device/amazon/otter/prebuilt/media/bootanimation.zip:/system/media/bootanimation.zip \
-
 # Init files
 PRODUCT_COPY_FILES += \
     device/bn/encore/init.encore.rc:root/init.encore.rc \
@@ -214,6 +210,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	cexec.out
+
+# Prebuilt /system/media
+PRODUCT_COPY_FILES += \
+    device/bn/encore/prebuilt/media/bootanimation.zip:/system/media/bootanimation.zip \
 
 PRODUCT_CHARACTERISTICS := tablet
 
