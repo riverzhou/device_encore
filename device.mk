@@ -213,7 +213,7 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt /system/media
 PRODUCT_COPY_FILES += \
-    device/bn/encore/prebuilt/media/bootanimation.zip:/system/media/bootanimation.zip \
+    device/bn/encore/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip \
 
 PRODUCT_CHARACTERISTICS := tablet
 
