@@ -223,11 +223,25 @@ PRODUCT_AAPT_CONFIG := large mdpi
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+    #ro.config.disable_hw_accel=true \
 # Set property overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
     dalvik.vm.heapsize=128m \
     ro.opengles.version=131072 \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=30 \
+    ro.additionalmounts=/mnt/emmc;/mnt/usbdisk \
+    ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc \
+    ro.pm.awake_on_usb=1 \
+    ro.cwm.forbid_format=/boot \
+    persist.sys.usb.config=mtp,adb \
+    ro.sf.hwrotation=270 \
+    ro.emmc=1 \
+    com.ti.omap_compat=true \
+    opencore.asmd=1 \
+    ro.magic.optimization=ZOMG \
+    ro.sf.lcd_density=160 \
+
 
 $(call inherit-product-if-exists, vendor/bn/encore/encore-vendor.mk)
 #$(call inherit-product-if-exists, hardware/ti/wpan/ti-wpan-products.mk)
