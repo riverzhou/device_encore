@@ -141,7 +141,7 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt /system/media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/media/bootanimation.zip:/system/media/bootanimation.zip \
+    $(LOCAL_PATH)/vendor/aosp/media/bootanimation.zip:/system/media/bootanimation.zip \
 
 # Prebuilt /system/usr
 # key mapping and touchscreen files
