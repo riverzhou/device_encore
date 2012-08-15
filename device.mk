@@ -1,6 +1,6 @@
+#==========================================================================
 #
-# Copyright (C) 2009 The Android Open Source Project
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2012 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,234 +15,251 @@
 # limitations under the License.
 #
 
-# These is the hardware-specific overlay, which points to the location
-# of hardware-specific resource overrides, typically the frameworks and
-# application settings that are stored in resourced.
-DEVICE_PACKAGE_OVERLAYS += device/bn/encore/overlay
-
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
-
-# Init files
-PRODUCT_COPY_FILES += \
-    device/bn/encore/init.encore.rc:root/init.encore.rc \
-    device/bn/encore/init.encore.usb.rc:root/init.encore.usb.rc \
-    device/bn/encore/ueventd.encore.rc:root/ueventd.encore.rc
-
-# key mapping and touchscreen files
-PRODUCT_COPY_FILES += \
-    device/bn/encore/cyttsp-i2c.idc:/system/usr/idc/cyttsp-i2c.idc \
-    device/bn/encore/ft5x06-i2c.idc:/system/usr/idc/ft5x06-i2c.idc \
-    device/bn/encore/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
-
-# Wifi - we're building ourselves
-# PRODUCT_COPY_FILES += \
-#    device/bn/encore/prebuilt/wifi/cfg80211.ko:/system/lib/modules/cfg80211.ko \
-#    device/bn/encore/prebuilt/wifi/compat.ko:/system/lib/modules/compat.ko \
-#    device/bn/encore/prebuilt/wifi/crc7.ko:/system/lib/modules/crc7.ko \
-#    device/bn/encore/prebuilt/wifi/mac80211.ko:/system/lib/modules/mac80211.ko \
-#    device/bn/encore/prebuilt/wifi/mmc_test.ko:/system/lib/modules/mmc_test.ko \
-#    device/bn/encore/prebuilt/wifi/pcbc.ko:/system/lib/modules/pcbc.ko \
-#    device/bn/encore/prebuilt/wifi/scsi_wait_scan.ko:/system/lib/modules/scsi_wait_scan.ko \
-#    device/bn/encore/prebuilt/wifi/wl12xx.ko:/system/lib/modules/wl12xx.ko \
-#    device/bn/encore/prebuilt/wifi/wl12xx_sdio.ko:/system/lib/modules/wl12xx_sdio.ko \
-#    device/bn/encore/prebuilt/wifi/wl12xx_sdio_test.ko:/system/lib/modules/wl12xx_sdio_test.ko \
-#    device/bn/encore/prebuilt/wifi/wl12xx_spi.ko:/system/lib/modules/wl12xx_spi.ko
-
-PRODUCT_COPY_FILES += \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl128x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl128x-fw-4-mr.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl128x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl128x-fw-4-plt.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl128x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl128x-fw-4-sr.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl1271-nvs.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin \
-    device/bn/encore/prebuilt/wifi/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin \
-
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    device/bn/encore/firmware/TIInit_7.2.31.bts:/system/etc/firmware/TIInit_7.2.31.bts
-
-# Overlay (omapzoom)
-#PRODUCT_COPY_FILES += \
-#    device/bn/encore/prebuilt/GFX/system/lib/hw/overlay.omap3.so:/system/lib/hw/overlay.omap3.so 
-
-# Place permission files
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-
-# Vold
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/etc/vold.encore.fstab:system/etc/vold.fstab
-
-# Media Profile
-PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/etc/media_profiles.xml:system/etc/media_profiles.xml \
-   $(LOCAL_PATH)/etc/media_codecs.xml:system/etc/media_codecs.xml
-
-# Clears the boot counter
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh
-
-# Audio Files - Need to fix Source - THANKS STEVEN676 (SLUO in irc)
-PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/prebuilt/alsa/alsa.omap3.so:system/lib/hw/alsa.omap3.so \
-   $(LOCAL_PATH)/prebuilt/alsa/libaudio.so:system/lib/libaudio.so \
-   $(LOCAL_PATH)/prebuilt/alsa/libaudio.so:obj/lib/libaudio.so \
-   $(LOCAL_PATH)/prebuilt/alsa/alsa.omap3.so:obj/lib/alsa.omap3.so
-
-# Art
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/poetry/poem.txt:root/sbin/poem.txt
-
-# update the battery log info
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/log_battery_data.sh:/system/bin/log_battery_data.sh
-
-ifeq ($(TARGET_PREBUILT_BOOTLOADER),)
-    LOCAL_BOOTLOADER := device/bn/encore/prebuilt/boot/MLO
-else
-    LOCAL_BOOTLOADER := $(TARGET_PREBUILT_BOOTLOADER)
-endif
-
-ifeq ($(TARGET_PREBUILT_2NDBOOTLOADER),)
-    LOCAL_2NDBOOTLOADER := device/bn/encore/prebuilt/boot/u-boot.bin
-else
-    LOCAL_2NDBOOTLOADER := $(TARGET_PREBUILT_2NDBOOTLOADER)
-endif
-
-# Boot files
-PRODUCT_COPY_FILES += \
-    $(LOCAL_BOOTLOADER):bootloader \
-    $(LOCAL_2NDBOOTLOADER):2ndbootloader
-
-# ramdisk_tools.sh -- use on-demand for various ramdisk operations, such as
-# repacking the ramdisk for use on an SD card or alternate emmc partitions
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/ramdisk_tools.sh:ramdisk_tools.sh
-
-# postrecoveryboot for recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+##############################################
+#DEVICE_PACKAGE_OVERLAYS += device/bn/encore/overlay
 
 # Product specfic packages
+# OMX components
+#PRODUCT_PACKAGES += \
+#    libI420colorconvert \
+#    libLCML \
+#    libOMX_Core \
+#    libOMX.TI.AAC.decode \
+#    libOMX.TI.AAC.decode \
+#    libOMX.TI.AAC.encode \
+#    libOMX.TI.AMR.decode \
+#    libOMX.TI.AMR.encode \
+#    libOMX.TI.AMR.encode \
+#    libOMX.TI.G711.decode \
+#    libOMX.TI.G711.encode \
+#    libOMX.TI.G722.decode \
+#    libOMX.TI.G722.encode \
+#    libOMX.TI.G726.decode \
+#    libOMX.TI.G726.encode \
+#    libOMX.TI.G729.decode \
+#    libOMX.TI.G729.encode \
+#    libOMX.TI.ILBC.decode \
+#    libOMX.TI.ILBC.encode \
+#    libOMX.TI.JPEG.decoder \
+#    libOMX.TI.JPEG.encoder \
+#    libOMX.TI.JPEG.Encoder \
+#    libOMX.TI.MP3.decode \
+#    libOMX.TI.Video.Decoder \
+#    libOMX.TI.Video.encoder \
+#    libOMX.TI.VPP \
+#    libOMX.TI.WBAMR.decode \
+#    libOMX.TI.WBAMR.encode \
+#    libOMX.TI.WBAMR.encode \
+#    libOMX.TI.WMA.decode \
+#    libVendor_ti_omx \
+#
+
+#    overlay.omap3 \
+
+# Hardware HALs
 PRODUCT_PACKAGES += \
-    hwcomposer.default \
-    hwprops \
-    overlay.omap3 \
     lights.encore \
     sensors.encore \
-    libaudioutils \
     audio.a2dp.default \
-    libaudiohw_legacy \
-    audio.primary.omap3 \
-    audio.primary.encore \
+    audio.primary.encore\
+    audio_policy.default \
+    hwcomposer.default \
+
+PRODUCT_PACKAGES += \
+    libinvensense_mpl \
+    libaudioutils \
+    libion \
+
+# Wifi
+PRODUCT_PACKAGES += \
+    lib_driver_cmd_wl12xx \
+    dhcpcd.conf \
+    wpa_supplicant.conf \
+    libtiOsLib \
+
+# Sound
+PRODUCT_PACKAGES += \
     tinyplay \
     tinymix \
     tinycap \
-    acoustics.default \
-    com.android.future.usb.accessory \
-    dhcpcd.conf \
-    dspexec \
-    libCustomWifi \
-    libbridge \
-    libomap_mm_library_jni \
+
+# Misc
+PRODUCT_PACKAGES += \
+    hwprops \
     librs_jni \
-    libtiOsLib \
-    make_ext4fs
-
-# OMX components
-# Addition of LOCAL_MODULE_TAGS requires us to specify
-# libraries needed for a particular device
-PRODUCT_PACKAGES += \
-    libI420colorconvert \
-    libLCML \
-    libOMX_Core \
-    libOMX.TI.AAC.decode \
-    libOMX.TI.AAC.decode \
-    libOMX.TI.AAC.encode \
-    libOMX.TI.AMR.decode \
-    libOMX.TI.AMR.encode \
-    libOMX.TI.AMR.encode \
-    libOMX.TI.G711.decode \
-    libOMX.TI.G711.encode \
-    libOMX.TI.G722.decode \
-    libOMX.TI.G722.encode \
-    libOMX.TI.G726.decode \
-    libOMX.TI.G726.encode \
-    libOMX.TI.G729.decode \
-    libOMX.TI.G729.encode \
-    libOMX.TI.ILBC.decode \
-    libOMX.TI.ILBC.encode \
-    libOMX.TI.JPEG.decoder \
-    libOMX.TI.JPEG.encoder \
-    libOMX.TI.JPEG.Encoder \
-    libOMX.TI.MP3.decode \
-    libOMX.TI.Video.Decoder \
-    libOMX.TI.Video.encoder \
-    libOMX.TI.VPP \
-    libOMX.TI.WBAMR.decode \
-    libOMX.TI.WBAMR.encode \
-    libOMX.TI.WBAMR.encode \
-    libOMX.TI.WMA.decode \
-    libVendor_ti_omx
-
-# PRODUCT_PACKAGES += \
-        libskiahw
-
-# from omap3.mk.
+    com.android.future.usb.accessory \
+    libjni_pinyinime \
+    make_ext4fs \
+    setup_fs \
+    calibrator \
+    iontest \
+    busybox \
+    su \
+    strace \
 
 PRODUCT_PACKAGES += \
-	libdomx \
-	libstagefrighthw \
-	libion \
-	smc_pa_ctrl \
-	tf_daemon
+    libdomx \
+    libstagefrighthw \
+    libion \
+    smc_pa_ctrl \
+    tf_daemon \
+    cexec.out \
+    libskiahw \
 
+# Apps
 PRODUCT_PACKAGES += \
-	cexec.out
+    Superuser \
+    Term \
+    FileManager \
+
+##############################################
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+
+#---------------------------------------
+# Init files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/root/init.rc:root/init.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.usb.rc:root/init.usb.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.encore.rc:root/init.encore.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/prebuilt/root/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:root/ueventd.encore.rc \
 
 # Prebuilt /system/media
 PRODUCT_COPY_FILES += \
-    device/bn/encore/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip \
+    $(LOCAL_PATH)/prebuilt/media/bootanimation.zip:/system/media/bootanimation.zip \
 
-PRODUCT_CHARACTERISTICS := tablet
+# Prebuilt /system/usr
+# key mapping and touchscreen files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-i2c.idc.idc:/system/usr/idc/cyttsp-i2c.idc \
+    $(LOCAL_PATH)/prebuilt/usr/idc/ft5x06-i2c.idc:/system/usr/idc/ft5x06-i2c.idc \
+    $(LOCAL_PATH)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
 
-# Screen size is "large", density is "mdpi"
-PRODUCT_AAPT_CONFIG := large mdpi
+# Prebuilt /etc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/wifi/TQS_S_2.6.ini:system/etc/wifi/TQS_S_2.6.ini \
+    $(LOCAL_PATH)/prebuilt/etc/init.d/01fixmac:system/etc/init.d/01fixmac \
+    $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
+    $(LOCAL_PATH)/prebuilt/etc/init.d/02oom:system/etc/init.d/02oom \
+    $(LOCAL_PATH)/prebuilt/etc/init.d/03mount:system/etc/init.d/03mount \
+    $(LOCAL_PATH)/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
+    $(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:/system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/prebuilt/etc/gps.conf:/system/etc/gps.conf \
+    $(LOCAL_PATH)/prebuilt/etc/media_codecs.xml:/system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:/system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/prebuilt/etc/mountd.conf:/system/etc/mountd.conf \
+    $(LOCAL_PATH)/prebuilt/etc/vold.fstab:/system/etc/vold.fstab \
 
-# we have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
+# Prebuilt /bin
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
+    $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
+    $(LOCAL_PATH)/prebuilt/bin/temperature_log.sh:/system/bin/temperature_log.sh \
+    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
+    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
 
-    #ro.config.disable_hw_accel=true \
-# Set property overrides
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapsize=128m \
-    ro.opengles.version=131072 \
+#---------------------------------------
+#vendor file Wifi
+#    $(LOCAL_PATH)/vendor/ti/etc/firmware/ducati-m3.bin:/system/etc/firmware/ducati-m3.bin \
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin.orig \
+
+# Graphics
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/lib/hw/gralloc.omap3.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/lib/libglslcompiler.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so :system/lib/libpvr2d.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libpvrANDROID_WSEGL.so:system/lib/libpvrANDROID_WSEGL.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_init.so:system/lib/libsrv_init.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libIMGegl.so:system/lib/libIMGegl.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRScopeServices.so:system/lib/libPVRScopeServices.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/lib/libsrv_um.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/lib/libusc.so \
+    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/bin/pvrsrvinit \
+    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvctl:system/bin/pvrsrvctl \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Shaders.so:system/lib/libPVRShell_OGLES2Shaders.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLESVase.so:system/lib/libPVRShell_OGLESVase.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Coverflow.so:system/lib/libPVRShell_OGLES2Coverflow.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2ChameleonMan.so:system/lib/libPVRShell_OGLES2ChameleonMan.so \
+
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/vendor/ti/lib/libdomx.so:/system/lib/libdomx.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libmm_osal.so:/system/lib/libmm_osal.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so:/system/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.secure.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.secure.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.H264E.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.H264E.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX_Core.so:/system/lib/libOMX_Core.so \
+
+##############################################
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.sf.lcd_density=160 \
+    dalvik.vm.heapsize=64m \
     wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=30 \
+    wifi.supplicant_scan_interval=120 \
+    ro.sf.hwrotation=270 \
+    ro.opengles.version=131072 \
+    persist.lab126.chargeprotect=1 \
+    com.ti.omap_enhancement=true \
+    omap.enhancement=true \
+    ro.com.google.locationfeatures=1 \
+    ro.com.google.networklocation=1 \
+    persist.sys.usb.config=mass_storage,adb \
+    ro.debuggable=1 \
+    ro.cwm.forbid_format = /bootloader,/dfs,/backup,/splash \
+    persist.sys.purgeable_assets=1 \
+    pm.sleep_mode=1 \
+    wifi.supplicant_scan_interval=180 \
+    windowsmgr.max_events_per_sec=200 \
+    ro.kernel.android.bootanim=1 \
+    persist.sys.root_access=1 \
     ro.additionalmounts=/mnt/emmc;/mnt/usbdisk \
     ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc \
     ro.pm.awake_on_usb=1 \
     ro.cwm.forbid_format=/boot \
-    persist.sys.usb.config=mtp,adb \
-    ro.sf.hwrotation=270 \
     ro.emmc=1 \
     com.ti.omap_compat=true \
     opencore.asmd=1 \
     ro.magic.optimization=ZOMG \
-    ro.sf.lcd_density=160 \
+
+##############################################
+
+PRODUCT_AAPT_CONFIG := large mdpi
+
+PRODUCT_AAPT_PREF_CONFIG := large
+
+PRODUCT_CHARACTERISTICS := tablet,nosdcard
+
+DEVICE_PACKAGE_OVERLAYS := device/bn/encore/overlay/aosp
+
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
 
-$(call inherit-product-if-exists, vendor/bn/encore/encore-vendor.mk)
-#$(call inherit-product-if-exists, hardware/ti/wpan/ti-wpan-products.mk)
-#$(call inherit-product-if-exists, device/ti/proprietary-open/wl12xx/wlan/wl12xx-wlan-fw-products.mk)
