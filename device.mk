@@ -146,7 +146,7 @@ PRODUCT_COPY_FILES += \
 # Prebuilt /system/usr
 # key mapping and touchscreen files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-i2c.idc.idc:/system/usr/idc/cyttsp-i2c.idc \
+    $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-i2c.idc:/system/usr/idc/cyttsp-i2c.idc \
     $(LOCAL_PATH)/prebuilt/usr/idc/ft5x06-i2c.idc:/system/usr/idc/ft5x06-i2c.idc \
     $(LOCAL_PATH)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
 
