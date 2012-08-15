@@ -191,7 +191,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/lib/libglslcompiler.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so :system/lib/libpvr2d.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so:system/lib/libpvr2d.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libpvrANDROID_WSEGL.so:system/lib/libpvrANDROID_WSEGL.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_init.so:system/lib/libsrv_init.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libIMGegl.so:system/lib/libIMGegl.so \
