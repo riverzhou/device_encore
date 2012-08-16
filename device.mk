@@ -186,35 +186,35 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/lib/hw/gralloc.omap3.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/lib/libglslcompiler.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so:system/lib/libpvr2d.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libpvrANDROID_WSEGL.so:system/lib/libpvrANDROID_WSEGL.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_init.so:system/lib/libsrv_init.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libIMGegl.so:system/lib/libIMGegl.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRScopeServices.so:system/lib/libPVRScopeServices.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/lib/libsrv_um.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/lib/libusc.so \
-    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/bin/pvrsrvinit \
-    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvctl:system/bin/pvrsrvctl \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Shaders.so:system/lib/libPVRShell_OGLES2Shaders.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLESVase.so:system/lib/libPVRShell_OGLESVase.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Coverflow.so:system/lib/libPVRShell_OGLES2Coverflow.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2ChameleonMan.so:system/lib/libPVRShell_OGLES2ChameleonMan.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so:system/vendor/lib/libpvr2d.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_init.so:system/vendor/lib/libsrv_init.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libIMGegl.so:system/vendor/lib/libIMGegl.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/vendor/lib/libusc.so \
+    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
+    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvctl:system/vendor/bin/pvrsrvctl \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Shaders.so:system/vendor/lib/libPVRShell_OGLES2Shaders.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLESVase.so:system/vendor/lib/libPVRShell_OGLESVase.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Coverflow.so:system/vendor/lib/libPVRShell_OGLES2Coverflow.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2ChameleonMan.so:system/vendor/lib/libPVRShell_OGLES2ChameleonMan.so \
 
 #PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/vendor/ti/lib/libdomx.so:/system/lib/libdomx.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libmm_osal.so:/system/lib/libmm_osal.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so:/system/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.secure.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.secure.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.H264E.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.H264E.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so:/system/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so \
-#    $(LOCAL_PATH)/vendor/ti/lib/libOMX_Core.so:/system/lib/libOMX_Core.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libdomx.so:/system/vendor/lib/libdomx.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libmm_osal.so:/system/vendor/lib/libmm_osal.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so:/system/vendor/lib/libOMX.TI.DUCATI1.MISC.SAMPLE.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so:/system/vendor/lib/libOMX.TI.DUCATI1.VIDEO.CAMERA.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.secure.so:/system/vendor/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.secure.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so:/system/vendor/lib/libOMX.TI.DUCATI1.VIDEO.DECODER.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.H264E.so:/system/vendor/lib/libOMX.TI.DUCATI1.VIDEO.H264E.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so:/system/vendor/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so \
+#    $(LOCAL_PATH)/vendor/ti/lib/libOMX_Core.so:/system/vendor/lib/libOMX_Core.so \
 
 ##############################################
 

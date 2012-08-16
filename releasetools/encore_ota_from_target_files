@@ -37,8 +37,8 @@ import encore_edify_generator as edify_generator
 __doc__ = ota_from_target_files.__doc__
 
 def CopyBootFiles(input_zip, output_zip):
-    output_zip.writestr("MLO", input_zip.read("BOOT/bootloader"))
-    output_zip.writestr("u-boot.bin", input_zip.read("BOOT/second"))
+    #output_zip.writestr("MLO", input_zip.read("BOOT/bootloader"))
+    #output_zip.writestr("u-boot.bin", input_zip.read("BOOT/second"))
     output_zip.writestr("kernel", input_zip.read("BOOT/kernel"))
     output_zip.writestr("ramdisk.img", input_zip.read("BOOT/ramdisk.img"))
 
