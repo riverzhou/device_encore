@@ -250,13 +250,24 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 ##############################################
 
+ifeq ($(TARGET_PREBUILT_BOOTLOADER),)
+    LOCAL_BOOTLOADER := $(LOCAL_PATH)/prebuilt/boot/MLO
+else
+    LOCAL_BOOTLOADER := $(TARGET_PREBUILT_BOOTLOADER)
+endif
+
+ifeq ($(TARGET_PREBUILT_2NDBOOTLOADER),)
+    LOCAL_2NDBOOTLOADER := $(LOCAL_PATH)/prebuilt/boot/u-boot.bin
+else
+    LOCAL_2NDBOOTLOADER := $(TARGET_PREBUILT_2NDBOOTLOADER)
+endif
+
 # Boot files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/boot/MLO:bootloader \
-    $(LOCAL_PATH)/prebuilt/boot/u-boot.bin:2ndbootloader \
+    $(LOCAL_BOOTLOADER):bootloader \
+    $(LOCAL_2NDBOOTLOADER):2ndbootloader
 
 ##############################################
-
 
 PRODUCT_AAPT_CONFIG := large mdpi
 
