@@ -250,6 +250,14 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 ##############################################
 
+# Boot files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/boot/MLO:bootloader \
+    $(LOCAL_PATH)/prebuilt/boot/u-boot.bin:2ndbootloader \
+
+##############################################
+
+
 PRODUCT_AAPT_CONFIG := large mdpi
 
 PRODUCT_AAPT_PREF_CONFIG := large
