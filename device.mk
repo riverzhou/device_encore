@@ -16,8 +16,6 @@
 #
 
 ##############################################
-#DEVICE_PACKAGE_OVERLAYS += device/bn/encore/overlay
-
 # Product specfic packages
 # OMX components
 #PRODUCT_PACKAGES += \
@@ -54,10 +52,10 @@
 #    libVendor_ti_omx \
 #
 
-#    overlay.omap3 \
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
+    overlay.omap3 \
     lights.encore \
     sensors.encore \
     audio.a2dp.default \
