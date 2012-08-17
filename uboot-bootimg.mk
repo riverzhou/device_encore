@@ -15,13 +15,11 @@
 #
 
 #
-# To use this bootimg 
-#  
+# To use this bootimg
 #  Add to your BoardConfig.mk:
 #    BOARD_CUSTOM_BOOTIMG_MK := device/common/uboot-bootimg.mk
 #  If using uboot multiimage add:
 #    BOARD_USES_UBOOT_MULTIIMAGE := true
-# 
 
 #
 # Ramdisk/boot image
@@ -96,7 +94,7 @@ ifeq ($(BOARD_USES_UBOOT_MULTIIMAGE),true)
 	INTERNAL_RECOVERYIMAGE_ARGS += -e $(BOARD_UBOOT_ENTRY)
     endif
 
-    BOARD_UBOOT_LOAD := $(strip $(BOARD_UBOOT_LOAD))    
+    BOARD_UBOOT_LOAD := $(strip $(BOARD_UBOOT_LOAD))
     ifdef BOARD_UBOOT_LOAD
 	INTERNAL_RECOVERYIMAGE_ARGS += -a $(BOARD_UBOOT_LOAD)
     endif
