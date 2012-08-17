@@ -60,8 +60,8 @@ on post-fs
     insmod /system/lib/modules/wl12xx.ko 
 
 # adbd for debug // FIXME FIXME
-    write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
-    write /sys/class/android_usb/android0/iProduct $ro.product.model
+    write /sys/class/android_usb/android0/iManufacturer "BN"
+    write /sys/class/android_usb/android0/iProduct "Nook Color"
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 2080
     write /sys/class/android_usb/android0/idProduct 0002
