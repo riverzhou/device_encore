@@ -243,6 +243,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
     com.ti.omap_compat=true \
     opencore.asmd=1 \
     ro.magic.optimization=ZOMG \
+    ro.secure=0 \
+    persist.service.adb.enable \
 
 ##############################################
 
