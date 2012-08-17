@@ -248,12 +248,6 @@ on boot
     hostname localhost
     domainname localdomain
 
-# set RLIMIT_NICE to allow priorities from 19 to -20
-    setrlimit 13 40 40
-
-# Set timeout value for rmnet stats.
-    write /sys/devices/virtual/net/rmnet0/timeout_suspend 5000000
-
 # Write value must be consistent with the above properties.
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2,7,14,15
     write /proc/sys/vm/overcommit_memory 1
