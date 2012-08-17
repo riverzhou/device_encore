@@ -70,10 +70,10 @@ on post-fs
     start adbd
 
 on post-fs-data
-    # we will remap this as /mnt/sdcard with the sdcard fuse tool
+    setprop vold.post_fs_data_done 1
+
     mkdir /data/media 0775 media_rw media_rw
     chown media_rw media_rw /data/media
-    setprop vold.post_fs_data_done 1
 
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -86,25 +86,19 @@ on post-fs-data
     mkdir /data/app-private 0771 system system
     mkdir /data/app 0771 system system
 
-# We chown/chmod /data/app again in case it was created at build-time
     chown system system /data/app
     chmod 0771 /data/app
     mkdir /data/property 0700 root root
 
-# create dalvik-cache and double-check the perms
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
     chmod 0771 /data/dalvik-cache
 
-# change permissions for bridge.  Symlink search directory
     chmod 0777 /dev/DspBridge
 
-# bluetooth power up/down interface
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
-
-# bluetooth uart
     chown bluetooth bluetooth /dev/ttyS1
 
 # Temporary workaround for SOD
@@ -112,21 +106,14 @@ on post-fs-data
     #write /sys/power/wake_lock 1
 
 # Enable Power Management - thanks NookieFroyo for this
-    # Enabling sleep in idle path
     write /sys/kernel/debug/pm_debug/sleep_while_idle 1
-            
-    # Enabling Voltage OFF in idle path
     write /sys/kernel/debug/pm_debug/voltage_off_while_idle 1
-                
-    # Enabling OFF mode
     write /sys/kernel/debug/pm_debug/enable_off_mode 1
                     
 # switch CPUfreq from performance to interactive
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpufreq/hotplug/down_threshold 30
 
-    #Give system ownership and permission to boost clock for specified timeout
-    #Note boost_timeout cannot be changed from application because of dynamic sysfs creation. It will have default value of 3 sec.
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
 
@@ -152,23 +139,17 @@ on post-fs-data
 # Permissions for Overlay
     chmod 0777 /dev/video6
     chmod 0777 /dev/video10
-
     chmod 0777 /sys/devices/platform/dsscomp/isprsz/enable
 
 # change permissions for overlay managers and display devices
     chmod 0777 /sys/devices/platform/omapdss/manager0/name
     chmod 0777 /sys/devices/platform/omapdss/manager1/name
-
     chmod 0777 /sys/devices/platform/omapdss/display0/name
-
     chmod 0777 /sys/devices/platform/omapdss/display0/enabled
-
     chmod 0777 /sys/devices/platform/omapdss/display0/timings
-
     chmod 0777 /sys/devices/platform/omapdss/overlay0/manager
     chmod 0777 /sys/devices/platform/omapdss/overlay1/manager
     chmod 0777 /sys/devices/platform/omapdss/overlay2/manager
-
     chmod 0777 /sys/devices/platform/omapdss/overlay0/enabled
     chmod 0777 /sys/devices/platform/omapdss/overlay1/enabled
     chmod 0777 /sys/devices/platform/omapdss/overlay2/enabled
