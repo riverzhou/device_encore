@@ -37,18 +37,11 @@ OMAP_ENHANCEMENT := true
 TARGET_NO_RADIOIMAGE := true
 #TARGET_NO_RECOVERY := false
 BOARD_USES_GENERIC_AUDIO := false
-USE_CAMERA_STUB := true
-BOARD_HAVE_BLUETOOTH := false
 
-# Makefile variables and C/C++ macros to recognise current pastry
-ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 16 || echo 1),)
-    ANDROID_API_JB_OR_LATER := true
-    COMMON_GLOBAL_CFLAGS += -DANDROID_API_JB_OR_LATER
-endif
-ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 14 || echo 1),)
-    ANDROID_API_ICS_OR_LATER := true
-    COMMON_GLOBAL_CFLAGS += -DANDROID_API_ICS_OR_LATER
-endif
+#Misc
+USE_CAMERA_STUB := true
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_FAKE_GPS := true
 
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 msmsdcc_sdioirq=1 wire.search_count=5
 BOARD_KERNEL_BASE := 0x20000000
@@ -58,7 +51,6 @@ TARGET_BOARD_PLATFORM := omap3
 # Kernel Build
 TARGET_KERNEL_CONFIG := encore_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/encore
-
 
 KERNEL_EXTERNAL_MODULES:
 	make clean -C hardware/ti/wlan/mac80211/compat_wl12xx
@@ -119,17 +111,11 @@ BOARD_VOLD_MAX_PARTITIONS := 8
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-
-BOARD_HAVE_FAKE_GPS := true
-
 # MultiMedia defines
 USE_CAMERA_STUB := true
 BOARD_USES_TI_OMAP_MODEM_AUDIO := false
 BOARD_HAS_NO_MISC_PARTITION := true
 BUILD_WITH_ALSA_UTILS := true
-
 
 # Misc.
 BOARD_NEEDS_CUTILS_LOG := true
