@@ -117,8 +117,8 @@ on post-fs-data
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
 
-    # Boost the CPU for 60 sec for boot optimization
-    write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 60000000
+    # Boost the CPU for 5 sec for boot optimization
+    write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 5000000
     write /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq 1
 
     # Enable SmartReflex autocompensation on VDD1 & VDD2
@@ -224,66 +224,9 @@ on post-fs-data
 
 on boot
 
-# basic network init
-    ifup lo
-    hostname localhost
-    domainname localdomain
-
-# Write value must be consistent with the above properties.
-    write /sys/module/lowmemorykiller/parameters/adj 0,1,2,7,14,15
-    write /proc/sys/vm/overcommit_memory 1
-    write /proc/sys/vm/min_free_order_shift 4
-    write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096,5120,5632,6144
-    write /proc/1/oom_adj -16
-
-    chmod 0660 /sys/power/state
-    chmod 0660 /sys/power/wake_lock
-    chmod 0660 /sys/power/wake_unlock
-    chown system system /sys/class/timed_output/vibrator/enable
-    chown system system /sys/class/leds/keyboard-backlight/brightness
-    chown system system /sys/class/leds/lcd-backlight/brightness
-    chown system system /sys/class/leds/button-backlight/brightness
-    chown system system /sys/class/leds/jogball-backlight/brightness
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/blue/brightness
-    chown system system /sys/class/leds/red/device/grpfreq
-    chown system system /sys/class/leds/red/device/grppwm
-    chown system system /sys/class/leds/red/device/blink
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/blue/brightness
-    chown system system /sys/class/leds/red/device/grpfreq
-    chown system system /sys/class/leds/red/device/grppwm
-    chown system system /sys/class/leds/red/device/blink
-    chown system system /sys/class/timed_output/vibrator/enable
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown system system /sys/kernel/ipv4/tcp_wmem_min
-    chown system system /sys/kernel/ipv4/tcp_wmem_def
-    chown system system /sys/kernel/ipv4/tcp_wmem_max
-    chown system system /sys/kernel/ipv4/tcp_rmem_min
-    chown system system /sys/kernel/ipv4/tcp_rmem_def
-    chown system system /sys/kernel/ipv4/tcp_rmem_max
-
-# Define modem related settings
-    setprop keyguard.no_require_sim 1 
-    setprop ro.config.nocheckin yes
-    
 on property:dev.bootcomplete=1
     start bootcnt
     class_start default
-
-service console /system/bin/sh
-    console
-
-service servicemanager /system/bin/servicemanager
-    user system
-    critical
-    onrestart restart zygote
-    onrestart restart media
-
-service vold /system/bin/vold
-    socket vold stream 0660 root mount
 
 service fixmac /system/bin/fix-mac.sh
     class core
@@ -291,7 +234,7 @@ service fixmac /system/bin/fix-mac.sh
     group root
     oneshot
 
-service hwprops /sbin/hwprops
+service hwprops /hwprops
     class core
     critical
     disabled
