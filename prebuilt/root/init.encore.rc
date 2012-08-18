@@ -14,20 +14,29 @@ on early-init
     symlink /storage/sdcard1 /mnt/sdcard
     export EXTERNAL_STORAGE /storage/sdcard1
     export SECONDARY_STORAGE /storage/sdcard0
-
-on init
     # setup global environment
     export PHONE_STORAGE /storage/sdcard0
     export DSP_PATH /system/lib/dsp
     export DEFAULT_BASEIMAGE /system/lib/dsp/baseimage.dof
 
-    # create mountpoints
+# create mountpoints
     mkdir /rom 0777 root root
     mkdir /mnt/emmc 0000 system system
     mkdir /mnt/usbdisk 0000 system system
     symlink /mnt/emmc /emmc
     symlink /mnt/usbdisk /usbdisk
     symlink /system/vendor /vendor
+
+on init
+
+# power management
+# Enable off mode by default
+    write /sys/kernel/debug/pm_debug/enable_off_mode 1
+
+# Enable Smart Reflex in debugfs
+    write /sys/kernel/debug/pm_debug/smartreflex/sr_core/autocomp 1
+    write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
+    write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
 
 # ALSA support
     mkdir /dev/snd 0777 system system
@@ -100,10 +109,6 @@ on post-fs-data
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /dev/ttyS1
-
-# Temporary workaround for SOD
-    # Only needed for 2.6.29
-    #write /sys/power/wake_lock 1
 
 # Enable Power Management - thanks NookieFroyo for this
     write /sys/kernel/debug/pm_debug/sleep_while_idle 1
@@ -223,6 +228,7 @@ on post-fs-data
     chmod 0777 /dev/snd/pcmC0D7p
 
 on boot
+    setprop ro.radio.noril yes
 
 on property:dev.bootcomplete=1
     start bootcnt
