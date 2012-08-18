@@ -173,13 +173,13 @@ PRODUCT_COPY_FILES += \
 
 #---------------------------------------
 #vendor file Wifi
-#    $(LOCAL_PATH)/vendor/ti/etc/firmware/ducati-m3.bin:/system/etc/firmware/ducati-m3.bin \
+#    $(LOCAL_PATH)/vendor/ti/etc/firmware/ducati-m3.bin:/system/vendor/etc/firmware/ducati-m3.bin \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin.orig \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/vendor/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/vendor/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/vendor/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/vendor/etc/firmware/ti-connectivity/wl1271-nvs.bin.orig \
 
 # Graphics
 PRODUCT_COPY_FILES += \
