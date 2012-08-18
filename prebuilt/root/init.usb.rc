@@ -1,13 +1,14 @@
-on init
-    write /sys/class/android_usb/android0/iSerial $ro.serialno
-    write /sys/class/android_usb/android0/f_mass_storage/inquiry_string "NookColor"
-    write /sys/class/android_usb/android0/f_rndis/manufacturer BN
-    write /sys/class/android_usb/android0/f_rndis/vendorID 18d1
-    write /sys/class/android_usb/android0/f_rndis/wceis 1
+# Copyright (C) 2012 The Android Open Source Project
+#
+# USB configuration common for all android devices
+#
 
-on boot
+on post-fs-data
     write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
     write /sys/class/android_usb/android0/iProduct $ro.product.model
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
+    write /sys/class/android_usb/android0/idVendor 18d1
+    write /sys/class/android_usb/android0/f_mass_storage/inquiry_string "NookColor"
 
 on property:sys.usb.config=mass_storage
     write /sys/class/android_usb/android0/enable 0
