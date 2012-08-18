@@ -28,7 +28,6 @@ on early-init
     symlink /system/vendor /vendor
 
 on init
-
 # power management
 # Enable off mode by default
     write /sys/kernel/debug/pm_debug/enable_off_mode 1
