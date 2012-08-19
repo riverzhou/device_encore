@@ -83,7 +83,6 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    hwprops \
     librs_jni \
     com.android.future.usb.accessory \
     libjni_pinyinime \
