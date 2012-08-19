@@ -158,6 +158,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Coverflow.so:system/vendor/lib/libPVRShell_OGLES2Coverflow.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2ChameleonMan.so:system/vendor/lib/libPVRShell_OGLES2ChameleonMan.so \
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
+
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/vendor/ti/lib/libdomx.so:/system/vendor/lib/libdomx.so \
 #    $(LOCAL_PATH)/vendor/ti/lib/libmm_osal.so:/system/vendor/lib/libmm_osal.so \
