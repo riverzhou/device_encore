@@ -51,8 +51,8 @@ BOARD_PAGE_SIZE := 0x00000800
 TARGET_BOARD_PLATFORM := omap3
 
 # Kernel Build
-#TARGET_KERNEL_CONFIG := encore_defconfig
-TARGET_KERNEL_CONFIG := encore_river_defconfig
+TARGET_KERNEL_CONFIG := encore_defconfig
+#TARGET_KERNEL_CONFIG := encore_river_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/encore
 
 KERNEL_EXTERNAL_MODULES:
