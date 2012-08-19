@@ -130,6 +130,7 @@ PRODUCT_COPY_FILES += \
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/root/init.encore.rc:root/init.encore.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.encore.usb.rc:root/init.encore.usb.rc \
     $(LOCAL_PATH)/prebuilt/root/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:root/ueventd.encore.rc \
 

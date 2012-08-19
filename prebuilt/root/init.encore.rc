@@ -12,7 +12,6 @@ on early-init
     symlink /storage/sdcard1 /mnt/sdcard
     export EXTERNAL_STORAGE /storage/sdcard1
     export SECONDARY_STORAGE /storage/sdcard0
-    # setup global environment
     export PHONE_STORAGE /storage/sdcard0
     export DSP_PATH /system/lib/dsp
     export DEFAULT_BASEIMAGE /system/lib/dsp/baseimage.dof
@@ -23,7 +22,6 @@ on early-init
     mkdir /mnt/usbdisk 0000 system system
     symlink /mnt/emmc /emmc
     symlink /mnt/usbdisk /usbdisk
-    symlink /system/vendor /vendor
 
 on init
 # power management
