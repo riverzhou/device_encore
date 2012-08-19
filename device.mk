@@ -1,4 +1,3 @@
-#==========================================================================
 #
 # Copyright (C) 2012 The Android Open-Source Project
 #
@@ -15,43 +14,21 @@
 # limitations under the License.
 #
 
-##############################################
-# Product specfic packages
-# OMX components
-#PRODUCT_PACKAGES += \
-#    libI420colorconvert \
-#    libLCML \
-#    libOMX_Core \
-#    libOMX.TI.AAC.decode \
-#    libOMX.TI.AAC.decode \
-#    libOMX.TI.AAC.encode \
-#    libOMX.TI.AMR.decode \
-#    libOMX.TI.AMR.encode \
-#    libOMX.TI.AMR.encode \
-#    libOMX.TI.G711.decode \
-#    libOMX.TI.G711.encode \
-#    libOMX.TI.G722.decode \
-#    libOMX.TI.G722.encode \
-#    libOMX.TI.G726.decode \
-#    libOMX.TI.G726.encode \
-#    libOMX.TI.G729.decode \
-#    libOMX.TI.G729.encode \
-#    libOMX.TI.ILBC.decode \
-#    libOMX.TI.ILBC.encode \
-#    libOMX.TI.JPEG.decoder \
-#    libOMX.TI.JPEG.encoder \
-#    libOMX.TI.JPEG.Encoder \
-#    libOMX.TI.MP3.decode \
-#    libOMX.TI.Video.Decoder \
-#    libOMX.TI.Video.encoder \
-#    libOMX.TI.VPP \
-#    libOMX.TI.WBAMR.decode \
-#    libOMX.TI.WBAMR.encode \
-#    libOMX.TI.WBAMR.encode \
-#    libOMX.TI.WMA.decode \
-#    libVendor_ti_omx \
+# This file includes all definitions that apply to ALL otter devices, and
+# are also specific to otter devices
 #
+# Everything in this directory will become public
 
+
+##############################################
+# omap3.mk
+PRODUCT_PACKAGES += \
+    libdomx \
+    libstagefrighthw \
+    smc_pa_ctrl \
+    tf_daemon \
+    cexec.out \
+    libskiahw \
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
@@ -62,6 +39,8 @@ PRODUCT_PACKAGES += \
     audio.primary.encore\
     audio_policy.default \
     hwcomposer.default \
+
+#    libwvm \
 
 PRODUCT_PACKAGES += \
     libinvensense_mpl \
@@ -94,15 +73,6 @@ PRODUCT_PACKAGES += \
     su \
     strace \
 
-PRODUCT_PACKAGES += \
-    libdomx \
-    libstagefrighthw \
-    libion \
-    smc_pa_ctrl \
-    tf_daemon \
-    cexec.out \
-    libskiahw \
-
 # Apps
 PRODUCT_PACKAGES += \
     FileManager \
@@ -129,25 +99,20 @@ PRODUCT_COPY_FILES += \
 #---------------------------------------
 # Init files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/root/init.encore.rc:root/init.encore.rc \
-    $(LOCAL_PATH)/prebuilt/root/init.encore.usb.rc:root/init.encore.usb.rc \
-    $(LOCAL_PATH)/prebuilt/root/init.usb.rc:root/init.usb.rc \
-    $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:root/ueventd.encore.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.encore.rc:/root/init.encore.rc \
+    $(LOCAL_PATH)/prebuilt/root/init.usb.rc:/root/init.usb.rc \
+    $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:/root/ueventd.encore.rc \
 
-# Prebuilt /system/media
+# Prebuilt /bin
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/aosp/media/bootanimation.zip:/system/media/bootanimation.zip \
+    $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
+    $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
+    $(LOCAL_PATH)/prebuilt/bin/temperature_log.sh:/system/bin/temperature_log.sh \
+    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
+    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
 
-# Prebuilt /system/usr
-# key mapping and touchscreen files
+# Prebuilts /system/etc
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-i2c.idc:/system/usr/idc/cyttsp-i2c.idc \
-    $(LOCAL_PATH)/prebuilt/usr/idc/ft5x06-i2c.idc:/system/usr/idc/ft5x06-i2c.idc \
-    $(LOCAL_PATH)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-
-# Prebuilt /etc
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/wifi/TQS_S_2.6.ini:system/etc/wifi/TQS_S_2.6.ini \
     $(LOCAL_PATH)/prebuilt/etc/init.d/01fixmac:system/etc/init.d/01fixmac \
     $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
     $(LOCAL_PATH)/prebuilt/etc/init.d/02oom:system/etc/init.d/02oom \
@@ -159,24 +124,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:/system/etc/media_profiles.xml \
     $(LOCAL_PATH)/prebuilt/etc/mountd.conf:/system/etc/mountd.conf \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:/system/etc/vold.fstab \
+    $(LOCAL_PATH)/prebuilt/etc/wifi/TQS_S_2.6.ini:system/etc/wifi/TQS_S_2.6.ini \
 
-# Prebuilt /bin
+# Prebuilt /system/usr
+# key mapping and touchscreen files
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
-    $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
-    $(LOCAL_PATH)/prebuilt/bin/temperature_log.sh:/system/bin/temperature_log.sh \
-    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
-    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
+    $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-i2c.idc:/system/usr/idc/cyttsp-i2c.idc \
+    $(LOCAL_PATH)/prebuilt/usr/idc/ft5x06-i2c.idc:/system/usr/idc/ft5x06-i2c.idc \
+    $(LOCAL_PATH)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
 
 #---------------------------------------
-#vendor file Wifi
-#    $(LOCAL_PATH)/vendor/ti/etc/firmware/ducati-m3.bin:/system/etc/firmware/ducati-m3.bin \
 
+# Prebuilt /system/media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin.orig \
+    $(LOCAL_PATH)/vendor/aosp/media/bootanimation.zip:/system/media/bootanimation.zip \
 
 # Graphics
 PRODUCT_COPY_FILES += \
@@ -209,6 +170,16 @@ PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so:/system/vendor/lib/libOMX.TI.DUCATI1.VIDEO.MPEG4E.so \
 #    $(LOCAL_PATH)/vendor/ti/lib/libOMX_Core.so:/system/vendor/lib/libOMX_Core.so \
 
+#    $(LOCAL_PATH)/vendor/ti/etc/firmware/ducati-m3.bin:/system/etc/firmware/ducati-m3.bin \
+
+#vendor file Wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin.orig \
+
+
 ##############################################
 
 PRODUCT_PROPERTY_OVERRIDES := \
@@ -221,11 +192,9 @@ PRODUCT_PROPERTY_OVERRIDES := \
     persist.lab126.chargeprotect=1 \
     com.ti.omap_enhancement=true \
     omap.enhancement=true \
-    com.ti.omap_compat=true \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     persist.sys.usb.config=mass_storage,adb \
-    ro.debuggable=1 \
     ro.cwm.forbid_format = /bootloader,/dfs,/backup,/splash \
     persist.sys.purgeable_assets=1 \
     pm.sleep_mode=1 \
@@ -233,15 +202,10 @@ PRODUCT_PROPERTY_OVERRIDES := \
     windowsmgr.max_events_per_sec=200 \
     ro.kernel.android.bootanim=1 \
     persist.sys.root_access=1 \
-    ro.additionalmounts=/mnt/emmc;/mnt/usbdisk \
-    ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc \
-    ro.pm.awake_on_usb=1 \
-    ro.cwm.forbid_format=/boot \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1 \
+    com.ti.omap_compat=true \
     ro.emmc=1 \
-    opencore.asmd=1 \
-    ro.magic.optimization=ZOMG \
-    ro.secure=0 \
-    persist.service.adb.enable \
 
 ##############################################
 
@@ -275,4 +239,4 @@ DEVICE_PACKAGE_OVERLAYS := device/bn/encore/overlay/aosp
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
-
+#$(call inherit-product, hardware/ti/omap3/omap3.mk)
