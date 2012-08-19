@@ -107,7 +107,6 @@ PRODUCT_PACKAGES += \
 # Apps
 PRODUCT_PACKAGES += \
     FileManager \
-    RE \
     SuperSU \
 
 ##############################################
