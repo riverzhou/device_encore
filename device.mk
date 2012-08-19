@@ -192,7 +192,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/vendor/lib/libusc.so \
     $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
-    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvctl:system/vendor/bin/pvrsrvctl \
     $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Shaders.so:system/vendor/lib/libPVRShell_OGLES2Shaders.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLESVase.so:system/vendor/lib/libPVRShell_OGLESVase.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libPVRShell_OGLES2Coverflow.so:system/vendor/lib/libPVRShell_OGLES2Coverflow.so \
