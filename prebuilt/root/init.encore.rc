@@ -33,21 +33,6 @@ on init
     write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
     write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
 
-# ALSA support
-    mkdir /dev/snd 0777 system system
-    symlink /dev/controlC0 /dev/snd/controlC0
-    symlink /dev/pcmC0D0p /dev/snd/pcmC0D0p
-    symlink /dev/pcmC0D0c /dev/snd/pcmC0D0c
-    symlink /dev/timer /dev/snd/timer
-    chown audio audio /dev/pcmC0D0c
-    chown audio audio /dev/pcmC0D0p
-    chown audio audio /dev/controlC0
-    chown audio audio /dev/timer
-    chmod 0777 /dev/snd/controlC0
-    chmod 0777 /dev/snd/pcmC0D0p
-    chmod 0777 /dev/snd/pcmC0D0c
-    chmod 0777 /dev/snd/timer
-
 on fs
 # mount partitions
     mount vfat /dev/block/mmcblk0p2 /rom sync noatime nodiratime uid=1000,gid=1000,fmask=117,dmask=007
@@ -214,13 +199,21 @@ on post-fs-data
     chmod 0777 /dev/dmm
 
 # change permissions for alsa nodes
+    chmod 0777 /dev/snd/controlC0
     chmod 0777 /dev/snd/pcmC0D0c
     chmod 0777 /dev/snd/pcmC0D0p
-    chmod 0777 /dev/snd/controlC0
-    chmod 0777 /dev/snd/timer
+    chmod 0777 /dev/snd/pcmC0D1c
+    chmod 0777 /dev/snd/pcmC0D1p
+    chmod 0777 /dev/snd/pcmC0D2c
+    chmod 0777 /dev/snd/pcmC0D2p
+    chmod 0777 /dev/snd/pcmC0D3c
+    chmod 0777 /dev/snd/pcmC0D3p
+    chmod 0777 /dev/snd/pcmC0D4c
+    chmod 0777 /dev/snd/pcmC0D4p
     chmod 0777 /dev/snd/pcmC0D5c
     chmod 0777 /dev/snd/pcmC0D5p
     chmod 0777 /dev/snd/pcmC0D7p
+    chmod 0777 /dev/snd/timer
 
 on boot
     setprop ro.radio.noril yes
