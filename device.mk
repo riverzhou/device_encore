@@ -22,17 +22,18 @@
 
 ##############################################
 # omap3.mk
-PRODUCT_PACKAGES += \
-    libdomx \
-    libstagefrighthw \
-    smc_pa_ctrl \
-    tf_daemon \
-    cexec.out \
-    libskiahw \
+#PRODUCT_PACKAGES += \
+#    libdomx \
+#    libstagefrighthw \
+#    smc_pa_ctrl \
+#    tf_daemon \
+#    cexec.out \
+#    libskiahw \
+
+#    overlay.omap3 \
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
-    overlay.omap3 \
     lights.encore \
     sensors.encore \
     audio.a2dp.default \
@@ -104,11 +105,11 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt /bin
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
+    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
     $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
     $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
     $(LOCAL_PATH)/prebuilt/bin/temperature_log.sh:/system/bin/temperature_log.sh \
-    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
-    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
 
 # Prebuilts /system/etc
 PRODUCT_COPY_FILES += \
@@ -244,3 +245,4 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 #$(call inherit-product, hardware/ti/omap3/omap3.mk)
+
