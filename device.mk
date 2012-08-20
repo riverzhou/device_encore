@@ -30,7 +30,6 @@
 #    cexec.out \
 #    libskiahw \
 
-#    overlay.omap3 \
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
@@ -40,6 +39,7 @@ PRODUCT_PACKAGES += \
     audio.primary.encore\
     audio_policy.default \
     hwcomposer.default \
+    overlay.omap3 \
 
 #    libwvm \
 
