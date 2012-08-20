@@ -48,15 +48,15 @@ on post-fs
     insmod /system/lib/modules/wl12xx.ko 
 
 # adbd for debug // FIXME FIXME
-    write /sys/class/android_usb/android0/iManufacturer "BN"
-    write /sys/class/android_usb/android0/iProduct "BN Nook Color"
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 18d1
-    write /sys/class/android_usb/android0/idProduct D002
-    write /sys/class/android_usb/android0/functions adb
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    setprop sys.usb.state adb
+#    write /sys/class/android_usb/android0/iManufacturer "BN"
+#    write /sys/class/android_usb/android0/iProduct "BN Nook Color"
+#    write /sys/class/android_usb/android0/enable 0
+#    write /sys/class/android_usb/android0/idVendor 18d1
+#    write /sys/class/android_usb/android0/idProduct D002
+#    write /sys/class/android_usb/android0/functions adb
+#    write /sys/class/android_usb/android0/enable 1
+#    start adbd
+#    setprop sys.usb.state adb
 
 on post-fs-data
     setprop vold.post_fs_data_done 1
