@@ -229,11 +229,11 @@ on property:dev.bootcomplete=1
     start bootcnt
     class_start default
 
-service fixmac /system/bin/fix-mac.sh
-    class core
-    user root
-    group root
-    oneshot
+#service fixmac /system/bin/fix-mac.sh
+#    class core
+#    user root
+#    group root
+#    oneshot
 
 # Initialize the SGX driver
 service pvrsrvinit /system/vendor/bin/pvrsrvinit

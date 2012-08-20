@@ -105,15 +105,12 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt /bin
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
     $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
     $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
     $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
-    $(LOCAL_PATH)/prebuilt/bin/temperature_log.sh:/system/bin/temperature_log.sh \
 
 # Prebuilts /system/etc
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/init.d/01fixmac:system/etc/init.d/01fixmac \
     $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
     $(LOCAL_PATH)/prebuilt/etc/init.d/02oom:system/etc/init.d/02oom \
     $(LOCAL_PATH)/prebuilt/etc/init.d/03mount:system/etc/init.d/03mount \
