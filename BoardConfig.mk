@@ -118,7 +118,6 @@ BOARD_NEEDS_CUTILS_LOG := true
 BOARD_USES_SECURE_SERVICES := true
 
 # CodeAurora Optimizations: msm8960: Improve performance of memmove, bcopy, and memmove_words
-
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
 ifdef TARGET_USE_KRAIT_BIONIC_OPTIMIZATION
 #TARGET_USE_KRAIT_PLD_SET := true
