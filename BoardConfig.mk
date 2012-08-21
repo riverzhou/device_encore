@@ -96,7 +96,7 @@ COMMON_GLOBAL_CFLAGS 		 += -DUSES_TI_MAC80211
 
 # HW Graphics (EGL fixes + webkit fix)
 BOARD_EGL_CFG := device/bn/encore/egl.cfg
-USE_OPENGL_RENDERER := true
+#USE_OPENGL_RENDERER := true
 
 # Storage
 BOARD_HAS_SDCARD_INTERNAL := true
