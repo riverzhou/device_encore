@@ -39,6 +39,7 @@ endif
 TARGET_NO_RADIOIMAGE := true
 #TARGET_NO_RECOVERY := false
 BOARD_USES_GENERIC_AUDIO := false
+TARGET_NO_RADIOIMAGE := true
 
 #Misc
 USE_CAMERA_STUB := true
@@ -93,17 +94,9 @@ WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
 WIFI_FIRMWARE_LOADER             := ""
 COMMON_GLOBAL_CFLAGS 		 += -DUSES_TI_MAC80211
 
-# Modem
-TARGET_NO_RADIOIMAGE := true
-
 # HW Graphics (EGL fixes + webkit fix)
 BOARD_EGL_CFG := device/bn/encore/egl.cfg
 USE_OPENGL_RENDERER := true
-BOARD_USES_OVERLAY := true
-ENABLE_WEBGL := true
-
-#DEFAULT_FB_NUM := 0
-#BOARD_NO_RGBX_8888 := true
 
 # Storage
 BOARD_HAS_SDCARD_INTERNAL := true
