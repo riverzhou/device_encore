@@ -22,14 +22,13 @@
 
 ##############################################
 # omap3.mk
-#PRODUCT_PACKAGES += \
 #    libdomx \
-#    libstagefrighthw \
-#    smc_pa_ctrl \
-#    tf_daemon \
-#    cexec.out \
-#    libskiahw \
 
+PRODUCT_PACKAGES += \
+    libskiahw \
+    libstagefrighthw \
+    dspexec \
+    libbridge \
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
