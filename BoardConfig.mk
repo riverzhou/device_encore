@@ -56,7 +56,7 @@ TARGET_KERNEL_CONFIG := encore_defconfig
 #TARGET_KERNEL_CONFIG := encore_river_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/encore
 
-KERNEL_EXTERNAL_MODULES:
+WLAN_MODULES:
 	make clean -C hardware/ti/wlan/mac80211/compat_wl12xx
 	make -j4 -C hardware/ti/wlan/mac80211/compat_wl12xx KERNEL_DIR=$(KERNEL_OUT) KLIB=$(KERNEL_OUT) KLIB_BUILD=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE="arm-eabi-"
 	mv hardware/ti/wlan/mac80211/compat_wl12xx/compat/compat.ko $(KERNEL_MODULES_OUT)
@@ -66,8 +66,8 @@ KERNEL_EXTERNAL_MODULES:
 	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx_spi.ko $(KERNEL_MODULES_OUT)
 	mv hardware/ti/wlan/mac80211/compat_wl12xx/drivers/net/wireless/wl12xx/wl12xx_sdio.ko $(KERNEL_MODULES_OUT)
 
-#$(KERNEL_OUT)
-TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
+# KERNEL_OUT
+TARGET_KERNEL_MODULES := WLAN_MODULES
 
 # Filesystem
 BOARD_CUSTOM_BOOTIMG_MK := device/bn/encore/uboot-bootimg.mk
@@ -86,6 +86,7 @@ TARGET_RECOVERY_PRE_COMMAND := "dd if=/dev/zero of=/rom/bcb bs=64 count=1 > /dev
 # Connectivity - Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+PRODUCT_WIRELESS_TOOLS           := true
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
 BOARD_WLAN_DEVICE                := wl12xx_mac80211
 BOARD_SOFTAP_DEVICE              := wl12xx_mac80211
@@ -96,7 +97,7 @@ COMMON_GLOBAL_CFLAGS 		 += -DUSES_TI_MAC80211
 
 # HW Graphics (EGL fixes + webkit fix)
 BOARD_EGL_CFG := device/bn/encore/egl.cfg
-#USE_OPENGL_RENDERER := true
+USE_OPENGL_RENDERER := true
 
 # Storage
 BOARD_HAS_SDCARD_INTERNAL := true
@@ -112,6 +113,7 @@ USE_CAMERA_STUB := true
 BOARD_USES_TI_OMAP_MODEM_AUDIO := false
 BOARD_HAS_NO_MISC_PARTITION := true
 BUILD_WITH_ALSA_UTILS := true
+BOARD_USES_ALSA_AUDIO := true
 
 # Misc.
 BOARD_NEEDS_CUTILS_LOG := true
