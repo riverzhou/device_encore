@@ -52,10 +52,10 @@ BOARD_PAGE_SIZE := 0x00000800
 TARGET_BOARD_PLATFORM := omap3
 
 # Kernel Build
+#TARGET_PREBUILT_KERNEL := device/bn/encore/kernel
 #TARGET_KERNEL_CONFIG := encore_defconfig
 TARGET_KERNEL_CONFIG := encore_river_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/encore
-#TARGET_PREBUILT_KERNEL := device/bn/encore/kernel
 
 WLAN_MODULES:
 	make clean -C hardware/ti/wlan/mac80211/compat_wl12xx
