@@ -96,19 +96,16 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 
 #---------------------------------------
-# Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/root/init.encore.rc:/root/init.encore.rc \
     $(LOCAL_PATH)/prebuilt/root/init.usb.rc:/root/init.usb.rc \
     $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:/root/ueventd.encore.rc \
 
-# Prebuilt /bin
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
     $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
+    $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
     $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
 
-# Prebuilts /system/etc
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
     $(LOCAL_PATH)/prebuilt/etc/init.d/02oom:system/etc/init.d/02oom \
@@ -119,7 +116,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:/system/etc/vold.fstab \
     $(LOCAL_PATH)/prebuilt/etc/wifi/TQS_S_2.6.ini:system/etc/wifi/TQS_S_2.6.ini \
 
-# Prebuilt /system/usr
 # key mapping and touchscreen files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/usr/idc/cyttsp-i2c.idc:/system/usr/idc/cyttsp-i2c.idc \
@@ -128,7 +124,6 @@ PRODUCT_COPY_FILES += \
 
 #---------------------------------------
 
-# Prebuilt /system/media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/aosp/media/bootanimation.zip:/system/media/bootanimation.zip \
 
@@ -157,7 +152,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/vendor/lib/libusc.so \
     $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
 
-#vendor file Wifi
+# wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl128x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl128x-fw-4-mr.bin \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl128x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl128x-fw-4-plt.bin \
@@ -171,31 +166,27 @@ PRODUCT_COPY_FILES += \
 ##############################################
 
 PRODUCT_PROPERTY_OVERRIDES := \
-    ro.sf.lcd_density=160 \
+    dalvik.vm.stack-trace-file=/data/tmp/traces.txt \
     dalvik.vm.heapstartsize=5m \
     dalvik.vm.heapgrowthlimit=42m \
     dalvik.vm.heapsize=128m \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=120 \
-    ro.sf.hwrotation=270 \
     ro.opengles.version=131072 \
-    persist.lab126.chargeprotect=1 \
-    com.ti.omap_enhancement=true \
-    omap.enhancement=true \
+    ro.sf.hwrotation=270 \
+    ro.sf.lcd_density=160 \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
-    persist.sys.usb.config=mass_storage,adb \
     ro.cwm.forbid_format = /bootloader,/dfs,/backup,/splash \
-    persist.sys.purgeable_assets=1 \
-    pm.sleep_mode=1 \
-    wifi.supplicant_scan_interval=180 \
-    windowsmgr.max_events_per_sec=200 \
     ro.kernel.android.bootanim=1 \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=120 \
+    wifi.supplicant_scan_interval=180 \
+    persist.sys.purgeable_assets=1 \
     persist.sys.root_access=1 \
-    ro.debuggable=1 \
     persist.service.adb.enable=1 \
-    ro.secure=0 \
-    com.ti.omap_compat=true \
+    windowsmgr.max_events_per_sec=200 \
+    pm.sleep_mode=1 \
+    com.ti.omap_enhancement=true \
+    omap.enhancement=true \
     ro.emmc=1 \
 
 ##############################################
@@ -229,6 +220,6 @@ DEVICE_PACKAGE_OVERLAYS := device/bn/encore/overlay/aosp
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+#$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 #$(call inherit-product, hardware/ti/omap3/omap3.mk)
 
