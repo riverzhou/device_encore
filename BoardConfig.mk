@@ -103,7 +103,7 @@ COMMON_GLOBAL_CFLAGS 		 += -DUSES_TI_MAC80211
 
 # Graphics
 BOARD_EGL_CFG := device/bn/encore/egl.cfg
-USE_OPENGL_RENDERER := true
+#USE_OPENGL_RENDERER := true
 
 # OMAP
 TARGET_OMAP3 := true
