@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL otter devices, and
+# This file includes all definitions that apply to ALL encore devices, and
 # are also specific to otter devices
 #
 # Everything in this directory will become public
