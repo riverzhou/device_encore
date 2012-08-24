@@ -126,9 +126,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/aosp/media/bootanimation.zip:/system/media/bootanimation.zip \
 
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/vendor/ti/etc/media_codecs.xml:/system/etc/media_codecs.xml \
-#    $(LOCAL_PATH)/vendor/ti/etc/media_profiles.xml:/system/etc/media_profiles.xml \
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/ti/etc/media_codecs.xml:/system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/vendor/ti/etc/media_profiles.xml:/system/etc/media_profiles.xml \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
