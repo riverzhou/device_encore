@@ -38,7 +38,8 @@ PRODUCT_PACKAGES += \
     audio.primary.encore\
     audio_policy.default \
     hwcomposer.default \
-    uim-sysfs \
+
+#    uim-sysfs \
 
 #    libwvm \
 

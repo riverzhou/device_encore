@@ -256,11 +256,11 @@ service bootcnt /system/bin/clear_bootcnt.sh
     disabled
     oneshot
 
-service uim /system/bin/uim-sysfs
-    class core
-    user root
-    group media bluetooth
-    oneshot
+#service uim /system/bin/uim-sysfs
+#    class core
+#    user root
+#    group media bluetooth
+#    oneshot
 
 #service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf -dd
 service p2p_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf -dd
