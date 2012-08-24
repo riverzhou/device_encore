@@ -39,7 +39,6 @@ PRODUCT_PACKAGES += \
     audio_policy.default \
     hwcomposer.default \
     uim-sysfs \
-    hwprops \
 
 #    libwvm \
 

@@ -41,8 +41,6 @@ on fs
     mount vfat /dev/block/mmcblk0p2 /rom sync noatime nodiratime uid=1000,gid=1000,fmask=117,dmask=007
 
 on post-fs
-    start hwprops
-
 # Load Modules
     insmod /system/lib/modules/compat.ko
     insmod /system/lib/modules/cfg80211.ko
@@ -236,11 +234,6 @@ on property:dev.bootcomplete=1
 #    user root
 #    group root
 #    oneshot
-
-service hwprops /sbin/hwprops
-    class core
-    disabled
-    oneshot
 
 # Initialize the SGX driver
 service pvrsrvinit /system/vendor/bin/pvrsrvinit
