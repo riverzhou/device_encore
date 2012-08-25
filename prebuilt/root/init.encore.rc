@@ -34,8 +34,7 @@ on init
 
 on fs
 # mount partitions
-    mount ext4 /dev/block/mmcblk0p5 /system wait 
-    mount ext4 /dev/block/mmcblk0p5 /system wait ro remount
+    mount ext4 /dev/block/mmcblk0p5 /system wait ro 
     mount ext4 /dev/block/mmcblk0p6 /data wait noatime nosuid nodev errors=continue
     mount ext4 /dev/block/mmcblk0p7 /cache wait noatime nosuid nodev errors=continue
     mount vfat /dev/block/mmcblk0p2 /rom sync noatime nodiratime uid=1000,gid=1000,fmask=117,dmask=007
@@ -46,6 +45,7 @@ on post-fs
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko
+    fxn_wifi_reset
 
 # adbd for debug
     write /sys/class/android_usb/android0/iManufacturer "BN"
@@ -283,6 +283,11 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
 #    user root
 #    group root
 #    oneshot
+
+service fxn_wifi_reset system/bin/init.fxn_wifi.sh
+    user root
+    oneshot
+
 
 on property:sys.boot_completed=1
     log "== init.encore.rc: on property:sys.boot_completed=1 -----------------------"
