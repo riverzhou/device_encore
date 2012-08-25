@@ -74,7 +74,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 987648000
 BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_VOLD_MAX_PARTITIONS := 32
 BOARD_HAS_LARGE_FILESYSTEM := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
 TARGET_RECOVERY_PRE_COMMAND := "dd if=/dev/zero of=/rom/bcb bs=64 count=1 > /dev/null 2>&1 ; echo 'recovery' >> /rom/bcb ; sync"
 
 BOARD_HAS_SDCARD_INTERNAL := true
