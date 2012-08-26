@@ -1495,7 +1495,6 @@ static void handle_hotplug(omap3_hwc_device_t *hwc_dev, int state)
     system("echo 1 >" "/sys/devices/platform/omapdss/overlay1/enabled");
     system("echo 1 >" "/sys/devices/platform/omapdss/overlay0/enabled");
 
-    }
     omap3_hwc_create_ext_matrix(ext);
     ALOGI("external display changed (state=%d, mirror={%s tform=%ddeg%s}, dock={%s tform=%ddeg%s}, tv=%d", state,
          ext->mirror.enabled ? "enabled" : "disabled",
