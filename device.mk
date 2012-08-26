@@ -143,18 +143,27 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/hw/hwcomposer.omap3.so:system/vendor/lib/hw/hwcomposer.omap3.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libWVStreamControlAPI_L3.so:system/vendor/lib/libWVStreamControlAPI_L3.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so:system/vendor/lib/libpvr2d.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_cpu.so:system/vendor/lib/libbltsville_cpu.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_init.so:system/vendor/lib/libsrv_init.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libOpenVG.so:system/vendor/lib/libOpenVG.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libwvm.so:system/vendor/lib/libwvm.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_ticpu.so:system/vendor/lib/libbltsville_ticpu.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libIMGegl.so:system/vendor/lib/libIMGegl.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_ticpu.2.0.0.10.so:system/vendor/lib/libbltsville_ticpu.2.0.0.10.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libOpenVGU.so:system/vendor/lib/libOpenVGU.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/vendor/lib/libusc.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/libwvdrm_L3.so:system/vendor/lib/libwvdrm_L3.so \
     $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
 
 # wifi
