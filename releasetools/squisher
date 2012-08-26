@@ -68,6 +68,8 @@ rm $REPACK/ota/system/lib/hw/lights.goldfish.so
 rm $REPACK/ota/system/lib/hw/sensors.goldfish.so
 
 #mv $REPACK/ota/system/lib/hw/hwcomposer.default.so $REPACK/ota/system/lib/hw/hwcomposer.encore.so
+mv $REPACK/ota/system/lib/hw/hwcomposer.encore.so $REPACK/ota/system/lib/hw/hwcomposer.encore.so.bak
+mv $REPACK/ota/system/vendor/lib/hw/hwcomposer.omap3.so $REPACK/ota/system/vendor/lib/hw/hwcomposer.omap3.so.bak
 
 # Remove unwanted apps
 #rm $REPACK/ota/system/app/Camera.apk
