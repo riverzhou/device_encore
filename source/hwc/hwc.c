@@ -49,21 +49,19 @@
 
 #include "hal_public.h"
 
-#define MAX_HW_OVERLAYS 3
-#define NUM_NONSCALING_OVERLAYS 1
-#define HAL_PIXEL_FORMAT_BGRX_8888		0x1FF
-#define HAL_PIXEL_FORMAT_TI_NV12 0x100
-#define HAL_PIXEL_FORMAT_TI_NV12_PADDED 0x101
-#define MAX_TILER_SLOT (16 << 20)
+#define MAX_HW_OVERLAYS 			    3
+#define NUM_NONSCALING_OVERLAYS 		    1
+#define HAL_PIXEL_FORMAT_BGRX_8888		    0x1FF
+#define HAL_PIXEL_FORMAT_TI_NV12 		    0x100
+#define HAL_PIXEL_FORMAT_TI_NV12_PADDED 	    0x101
+#define MAX_TILER_SLOT 				    (16 << 20)
 
 #define HAL_PIXEL_FORMAT_YUV_422                    27
 #define HAL_PIXEL_FORMAT_YUV_420                    19
 
-
-
 #define MIN(a,b)		  ((a)<(b)?(a):(b))
 #define MAX(a,b)		  ((a)>(b)?(a):(b))
-#define CLAMP(x,low,high) (((x)>(high))?(high):(((x)<(low))?(low):(x)))
+#define CLAMP(x,low,high) 	  (((x)>(high))?(high):(((x)<(low))?(low):(x)))
 
 struct ext_transform_t {
     __u8 rotation : 3;          /* 90-degree clockwise rotations */
@@ -1441,10 +1439,6 @@ static int omap3_hwc_device_close(hw_device_t* device)
     if (hwc_dev) {
         if (hwc_dev->dsscomp_fd >= 0)
             close(hwc_dev->dsscomp_fd);
-#if 0 /* Currently commented hdmi fd close*/
-        if (hwc_dev->hdmi_fb_fd >= 0)
-            close(hwc_dev->hdmi_fb_fd);
-#endif
         if (hwc_dev->fb_fd >= 0)
             close(hwc_dev->fb_fd);
         /* pthread will get killed when parent process exits */
@@ -1488,37 +1482,18 @@ static void handle_hotplug(omap3_hwc_device_t *hwc_dev, int state)
     pthread_mutex_lock(&hwc_dev->lock);
     ext->dock.enabled = ext->mirror.enabled = 0;
 
-    if (state == 1) { /* hdmi panel enable */
-    hdmi_enabled = 1;
-	 tv_enabled = 0;
-	 system("echo 0 >" "/sys/devices/platform/dsscomp/isprsz/enable");
-	 system("echo 0 >" "/sys/devices/platform/omapdss/display1/enabled");
-	 system("echo 0 >" "/sys/devices/platform/omapdss/overlay0/enabled");
-	 system("echo 0 >" "/sys/devices/platform/omapdss/display0/enabled");
-	 system("echo hdmi >" "/sys/devices/platform/omapdss/manager0/display");
-	 system("echo 1 >" "/sys/devices/platform/omapdss/display1/enabled");
-	 system("echo 1 >" "/sys/devices/platform/omapdss/overlay0/enabled");
-    } else if(state == 2) { /* tv-out enable */
-	 hdmi_enabled = 0;
-	 tv_enabled = 1;
-	 system("echo 0 >" "/sys/devices/platform/omapdss/overlay1/enabled");
-	 system("echo tv >" "/sys/devices/platform/omapdss/overlay1/manager");
-	 system("echo 1 >" "/sys/devices/platform/omapdss/overlay1/enabled");
-	 system("echo 1 >" "/sys/devices/platform/omapdss/display2/enabled");
-    } else { /* lcd enable */
     hdmi_enabled = 0;
     ext->last_mode = 0;
-	 tv_enabled = 0;
+    tv_enabled = 0;
     system("echo 1 >" "/sys/devices/platform/dsscomp/isprsz/enable");
     system("echo 0 >" "/sys/devices/platform/omapdss/display1/enabled");
     system("echo 0 >" "/sys/devices/platform/omapdss/overlay0/enabled");
-	 system("echo 0 >" "/sys/devices/platform/omapdss/overlay1/enabled");
-	 system("echo 800,450 >" "/sys/devices/platform/omapdss/overlay1/output_size");
+    system("echo 0 >" "/sys/devices/platform/omapdss/overlay1/enabled");
+    system("echo 1024,600 >" "/sys/devices/platform/omapdss/overlay1/output_size");
     system("echo lcd >" "/sys/devices/platform/omapdss/manager0/display");
     system("echo 1 >" "/sys/devices/platform/omapdss/display0/enabled");
-	 system("echo 1 >" "/sys/devices/platform/omapdss/overlay1/enabled");
+    system("echo 1 >" "/sys/devices/platform/omapdss/overlay1/enabled");
     system("echo 1 >" "/sys/devices/platform/omapdss/overlay0/enabled");
-
 
     }
     omap3_hwc_create_ext_matrix(ext);
@@ -1670,14 +1645,6 @@ static int omap3_hwc_device_open(const hw_module_t* module, const char* name,
         err = -errno;
         goto done;
     }
-#if 0 /*Currently commented hdmi fb fd*/
-    hwc_dev->hdmi_fb_fd = open("/dev/graphics/fb1", O_RDWR);
-    if (hwc_dev->hdmi_fb_fd < 0) {
-        ALOGE("failed to open hdmi fb (%d)", errno);
-        err = -errno;
-        goto done;
-    }
-#endif
 
     hwc_dev->fb_fd = open("/dev/graphics/fb0", O_RDWR);
     if (hwc_dev->fb_fd < 0) {
@@ -1731,18 +1698,18 @@ static int omap3_hwc_device_open(const hw_module_t* module, const char* name,
 
     /* get the board specific clone properties */
     /* 0:0:1280:720 */
-    if (property_get("persist.hwc.mirroring.region", value, "") <= 0 ||
-        sscanf(value, "%d:%d:%d:%d",
-               &hwc_dev->ext.mirror_region.left, &hwc_dev->ext.mirror_region.top,
-               &hwc_dev->ext.mirror_region.right, &hwc_dev->ext.mirror_region.bottom) != 4 ||
-        hwc_dev->ext.mirror_region.left >= hwc_dev->ext.mirror_region.right ||
-        hwc_dev->ext.mirror_region.top >= hwc_dev->ext.mirror_region.bottom) {
-        struct hwc_rect fb_region = { .right = hwc_dev->fb_dev->base.width, .bottom = hwc_dev->fb_dev->base.height };
-        hwc_dev->ext.mirror_region = fb_region;
-    }
-    ALOGI("clone region is set to (%d,%d) to (%d,%d)",
-         hwc_dev->ext.mirror_region.left, hwc_dev->ext.mirror_region.top,
-         hwc_dev->ext.mirror_region.right, hwc_dev->ext.mirror_region.bottom);
+//    if (property_get("persist.hwc.mirroring.region", value, "") <= 0 ||
+//        sscanf(value, "%d:%d:%d:%d",
+//               &hwc_dev->ext.mirror_region.left, &hwc_dev->ext.mirror_region.top,
+//               &hwc_dev->ext.mirror_region.right, &hwc_dev->ext.mirror_region.bottom) != 4 ||
+//        hwc_dev->ext.mirror_region.left >= hwc_dev->ext.mirror_region.right ||
+//        hwc_dev->ext.mirror_region.top >= hwc_dev->ext.mirror_region.bottom) {
+//        struct hwc_rect fb_region = { .right = hwc_dev->fb_dev->base.width, .bottom = hwc_dev->fb_dev->base.height };
+//        hwc_dev->ext.mirror_region = fb_region;
+//    }
+//    ALOGI("clone region is set to (%d,%d) to (%d,%d)",
+//         hwc_dev->ext.mirror_region.left, hwc_dev->ext.mirror_region.top,
+//         hwc_dev->ext.mirror_region.right, hwc_dev->ext.mirror_region.bottom);
 
     /* read switch state */
     int sw_fd = open("/sys/class/switch/display_support/state", O_RDONLY);
@@ -1762,10 +1729,6 @@ done:
     if (err && hwc_dev) {
         if (hwc_dev->dsscomp_fd >= 0)
             close(hwc_dev->dsscomp_fd);
-#if 0 /* Currently commentedhdmi fd close*/
-        if (hwc_dev->hdmi_fb_fd >= 0)
-            close(hwc_dev->hdmi_fb_fd);
-#endif
         if (hwc_dev->fb_fd >= 0)
             close(hwc_dev->fb_fd);
         pthread_mutex_destroy(&hwc_dev->lock);
