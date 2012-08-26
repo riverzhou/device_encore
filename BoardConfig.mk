@@ -52,7 +52,6 @@ TARGET_BOOTLOADER_BOARD_NAME := encore
 #TARGET_PREBUILT_KERNEL := device/bn/encore/kernel
 TARGET_KERNEL_CONFIG := encore_defconfig
 #TARGET_KERNEL_SOURCE := kernel/bn/encore
-#TARGET_KERNEL_CONFIG := encore_river_defconfig
 
 WLAN_MODULES:
 	make clean -C hardware/ti/wlan/mac80211/compat_wl12xx
