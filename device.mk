@@ -111,7 +111,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
     $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
     $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
-    $(LOCAL_PATH)/prebuilt/bin/init.fxn_wifi.sh:/system/bin/init.fxn_wifi.sh \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
@@ -136,11 +135,13 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/etc/media_codecs.xml:/system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/vendor/ti/bin/media_codecs.xml:/system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/vendor/ti/lib/media_codecs.xml:/system/etc/media_codecs.xml \
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
+#    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
+#    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
 
 # Graphics
 PRODUCT_COPY_FILES += \

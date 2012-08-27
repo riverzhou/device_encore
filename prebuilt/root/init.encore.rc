@@ -47,7 +47,6 @@ on post-fs
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko
-    fxn_wifi_reset
 
 # adbd for debug
     write /sys/class/android_usb/android0/iManufacturer "BN"
@@ -279,17 +278,11 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     oneshot
 
 # load DSP firmware
-# disable by river  // FIXME FIXME
-service baseimage /system/bin/dspexec /system/lib/dsp/baseimage.dof
+service baseimage /system/vendor/bin/dspexec /system/lib/dsp/baseimage.dof
     class main
     user root
     group root
     oneshot
-
-service fxn_wifi_reset system/bin/init.fxn_wifi.sh
-    user root
-    oneshot
-
 
 on property:sys.boot_completed=1
     log "== init.encore.rc: on property:sys.boot_completed=1 -----------------------"
