@@ -50,7 +50,8 @@ TARGET_BOOTLOADER_BOARD_NAME := encore
 
 # Kernel Build
 #TARGET_PREBUILT_KERNEL := device/bn/encore/kernel
-TARGET_KERNEL_CONFIG := encore_defconfig
+#TARGET_KERNEL_CONFIG := encore_defconfig
+TARGET_KERNEL_CONFIG := river_defconfig
 #TARGET_KERNEL_SOURCE := kernel/bn/encore
 
 WLAN_MODULES:
