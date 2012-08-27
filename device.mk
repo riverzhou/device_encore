@@ -30,9 +30,10 @@
 #    libbridge \
 #    overlay.omap3 \
 
+#    dspexec \
+#    libbridge \
+
 PRODUCT_PACKAGES += \
-    dspexec \
-    libbridge \
     hwcomposer.encore \
 
 # Hardware HALs
