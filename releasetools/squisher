@@ -59,7 +59,7 @@ cd $REPACK/ota/system/app
 find ./ -name \*.apk | $XARGS $OPTICHARGER
 )
 
-#rm $REPACK/ota/system/lib/hw/camera.omap4.so
+rm $REPACK/ota/system/lib/hw/camera.omap4.so
 rm $REPACK/ota/system/lib/hw/camera.goldfish.so
 rm $REPACK/ota/system/lib/hw/audio.primary.default.so
 rm $REPACK/ota/system/lib/hw/gps.goldfish.so
@@ -72,7 +72,7 @@ mv $REPACK/ota/system/lib/hw/hwcomposer.encore.so $REPACK/ota/system/lib/hw/hwco
 mv $REPACK/ota/system/vendor/lib/hw/hwcomposer.omap3.so $REPACK/ota/system/vendor/lib/hw/hwcomposer.omap3.so.bak
 
 # Remove unwanted apps
-#rm $REPACK/ota/system/app/Camera.apk
+rm $REPACK/ota/system/app/Camera.apk
 rm $REPACK/ota/system/app/Development.apk
 rm $REPACK/ota/system/app/RomManager.apk
 
