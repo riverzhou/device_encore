@@ -135,8 +135,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/etc/media_codecs.xml:/system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/vendor/ti/bin/media_codecs.xml:/system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/vendor/ti/lib/media_codecs.xml:/system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/vendor/ti/bin/dspexec:/system/vendor/bin/dspexec \
+    $(LOCAL_PATH)/vendor/ti/lib/libbridge.so:/system/vendor/lib/libbridge.so \
 
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
