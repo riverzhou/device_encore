@@ -133,7 +133,6 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/hw/libstagefrighthw.so:system/vendor/lib/hw/libstagefrighthw.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
@@ -151,6 +150,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/vendor/lib/libusc.so \
     $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
+
+#    $(LOCAL_PATH)/vendor/imgtec/lib/hw/libstagefrighthw.so:system/vendor/lib/hw/libstagefrighthw.so \
 
 # wifi
 PRODUCT_COPY_FILES += \
