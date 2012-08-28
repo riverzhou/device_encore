@@ -103,7 +103,8 @@ COMMON_GLOBAL_CFLAGS 		 += -DUSES_TI_MAC80211
 
 # Graphics
 BOARD_EGL_CFG := device/bn/encore/egl.cfg
-USE_OPENGL_RENDERER := true
+#USE_OPENGL_RENDERER := true
+#Do not use hardware renderer anymore. It's no useful.
 
 # OMAP
 TARGET_OMAP3 := true
