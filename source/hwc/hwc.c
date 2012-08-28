@@ -144,7 +144,7 @@ struct omap3_hwc_device {
 };
 typedef struct omap3_hwc_device omap3_hwc_device_t;
 
-static int debug = 0;
+static int debug = 1;
 static int hdmi_enabled = 0;
 static int tv_enabled = 0;
 
