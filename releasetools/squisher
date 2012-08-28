@@ -61,9 +61,7 @@ find ./ -name \*.apk | $XARGS $OPTICHARGER
 
 rm -f $REPACK/ota/system/lib/hw/camera.omap4.so
 rm -f $REPACK/ota/system/lib/hw/camera.goldfish.so
-rm -f $REPACK/ota/system/lib/hw/audio.primary.default.so
 rm -f $REPACK/ota/system/lib/hw/gps.goldfish.so
-rm -f $REPACK/ota/system/lib/hw/gralloc.default.so
 rm -f $REPACK/ota/system/lib/hw/lights.goldfish.so
 rm -f $REPACK/ota/system/lib/hw/sensors.goldfish.so
 
