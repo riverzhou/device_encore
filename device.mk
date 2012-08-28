@@ -30,12 +30,6 @@
 #    libbridge \
 #    overlay.omap3 \
 
-#    dspexec \
-#    libbridge \
-
-PRODUCT_PACKAGES += \
-    hwcomposer.encore \
-
 # Hardware HALs
 PRODUCT_PACKAGES += \
     lights.encore \
@@ -46,8 +40,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.default \
 
 #    uim-sysfs \
-
-#    libwvm \
 
 PRODUCT_PACKAGES += \
     libinvensense_mpl \
