@@ -130,13 +130,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/bin/dspexec:/system/vendor/bin/dspexec \
     $(LOCAL_PATH)/vendor/ti/lib/libbridge.so:/system/vendor/lib/libbridge.so \
 
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
-#    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/lib/egl/libEGL_POWERVR_SGX530_125.so \
-#    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
-
 # Graphics
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
+    $(LOCAL_PATH)/vendor/imgtec/lib/hw/libstagefrighthw.so:system/vendor/lib/hw/libstagefrighthw.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
