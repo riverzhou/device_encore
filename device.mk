@@ -38,6 +38,7 @@ PRODUCT_PACKAGES += \
     audio.primary.encore\
     audio_policy.default \
     hwcomposer.default \
+    gralloc.default \
 
 #    uim-sysfs \
 
