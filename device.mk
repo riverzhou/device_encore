@@ -140,8 +140,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/hw/hwcomposer.omap3.so:system/vendor/lib/hw/hwcomposer.omap3.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so:system/vendor/lib/libpvr2d.so \
     $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_cpu.so:system/vendor/lib/libbltsville_cpu.so \
