@@ -43,10 +43,10 @@ on fs
 
 on post-fs
 # Load Modules
-#    insmod /system/lib/modules/compat.ko
-#    insmod /system/lib/modules/cfg80211.ko
-#    insmod /system/lib/modules/mac80211.ko
-#    insmod /system/lib/modules/wl12xx.ko
+    insmod /system/lib/modules/compat.ko
+    insmod /system/lib/modules/cfg80211.ko
+    insmod /system/lib/modules/mac80211.ko
+    insmod /system/lib/modules/wl12xx.ko
 
 # adbd for debug
     write /sys/class/android_usb/android0/iManufacturer "BN"
