@@ -25,8 +25,8 @@ ARCH_ARM_HAVE_ARMV7A := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mcpu=cortex-a8 -mfpu=neon 
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mcpu=cortex-a8 -mfpu=neon 
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mcpu=cortex-a8 -mfpu=neon 
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mcpu=cortex-a8 -mfpu=neon 
 TARGET_arm_CFLAGS := -O2 -fomit-frame-pointer -fstrict-aliasing -funswitch-loops fmodulo-sched -fmodulo-sched-allow-regmoves
 TARGET_thumb_CFLAGS := -mthumb -Os -fomit-frame-pointer -fstrict-aliasing
 
@@ -37,7 +37,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_NO_RECOVERY := false
 BOARD_USES_GENERIC_AUDIO := false
 USE_CAMERA_STUB := true
-BOARD_HAVE_BLUETOOTH := true
+#BOARD_HAVE_BLUETOOTH := true
 TARGET_NO_RADIOIMAGE := true
 BOARD_HAVE_FAKE_GPS := true
 
@@ -110,7 +110,7 @@ BOARD_EGL_CFG := device/bn/encore/egl.cfg
 TARGET_OMAP3 := true
 OMAP_ENHANCEMENT := true
 ifdef OMAP_ENHANCEMENT
-COMMON_GLOBAL_CFLAGS += -DTARGET_OMAP3 -DOMAP_COMPAT -DBINDER_COMPAT
+COMMON_GLOBAL_CFLAGS += -DTARGET_OMAP3 -DOMAP_ENHANCEME
 endif
 
 # MultiMedia defines
