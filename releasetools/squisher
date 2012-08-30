@@ -67,7 +67,7 @@ rm -f $REPACK/ota/system/lib/hw/sensors.goldfish.so
 
 # Remove unwanted apps
 rm -f $REPACK/ota/system/app/Camera.apk
-rm -f $REPACK/ota/system/app/Development.apk
+#rm -f $REPACK/ota/system/app/Development.apk
 rm -f $REPACK/ota/system/app/RomManager.apk
 
 # Fix build.prop
