@@ -38,6 +38,8 @@ PRODUCT_PACKAGES += \
     audio.primary.encore\
     audio_policy.default \
     hwcomposer.default \
+    libion_ti \
+    iontest_ti \
 
 #    uim-sysfs \
 
