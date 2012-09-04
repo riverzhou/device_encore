@@ -129,45 +129,124 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/etc/media_codecs.xml:/system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/vendor/ti/bin/dspexec:/system/vendor/bin/dspexec \
-    $(LOCAL_PATH)/vendor/ti/lib/libbridge.so:/system/vendor/lib/libbridge.so \
 
-# Graphics
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/imgtec/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libpvr2d.so:system/vendor/lib/libpvr2d.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_cpu.so:system/vendor/lib/libbltsville_cpu.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_init.so:system/vendor/lib/libsrv_init.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libOpenVG.so:system/vendor/lib/libOpenVG.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_ticpu.so:system/vendor/lib/libbltsville_ticpu.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libIMGegl.so:system/vendor/lib/libIMGegl.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libbltsville_ticpu.2.0.0.10.so:system/vendor/lib/libbltsville_ticpu.2.0.0.10.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libOpenVGU.so:system/vendor/lib/libOpenVGU.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
-    $(LOCAL_PATH)/vendor/imgtec/lib/libusc.so:system/vendor/lib/libusc.so \
-    $(LOCAL_PATH)/vendor/imgtec/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
-
-#    $(LOCAL_PATH)/vendor/imgtec/lib/hw/libstagefrighthw.so:system/vendor/lib/hw/libstagefrighthw.so \
-
-# wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin \
 
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)vendor/ti/vendor/lib/hw/libstagefrighthw.so
+#    $(LOCAL_PATH)vendor/ti/vendor/lib/libbridge.so
+#    $(LOCAL_PATH)vendor/ti/vendor/lib/libion.so
+#    $(LOCAL_PATH)vendor/ti/vendor/bin/dspexec
+#
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/720p_h264vdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/720p_mp4vdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/720p_wmv9vdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/baseimage.dof
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/baseimage.map
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/chromasuppress.l64p
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/conversions.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/dctn_dyn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/ddspbase_tiomap3430.dof64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/dfgm.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/dynbase_tiomap3430.dof64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/eenf_ti.l64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g711dec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g711enc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g722dec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g722enc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g726dec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g726enc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g729dec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/g729enc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/h264vdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/h264venc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/ilbcdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/ilbcenc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/ipp_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/jpegdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/jpegenc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/m4venc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/monitor_tiomap3430.dof64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/mp3dec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/mp4vdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/mpeg4aacdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/mpeg4aacenc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/nbamrdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/nbamrenc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/postprocessor_dualout.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/qosdyn_3430.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/ringio.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/sparkdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/star.l64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/usn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/vpp_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/wbamrdec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/wbamrenc_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/wmadec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/wmv9dec_sn.dll64P
+#    $(LOCAL_PATH)vendor/ti/lib/dsp/yuvconvert.l64p
+#
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX_Core.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.ITTIAM.AAC.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.ITTIAM.WMA.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.720P.Decoder.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.AAC.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.AAC.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.AMR.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.AMR.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G711.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G711.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G722.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G722.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G726.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G726.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G729.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.G729.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.ILBC.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.ILBC.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.JPEG.encoder.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.MP3.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.Video.Decoder.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.Video.encoder.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.WBAMR.decode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.WBAMR.encode.so
+#    $(LOCAL_PATH)vendor/ti/lib/libOMX.TI.WMA.decode.soa
+#    $(LOCAL_PATH)vendor/ti/lib/libstagefrighthw.so
+#    $(LOCAL_PATH)vendor/ti/lib/libPERF.so
+
+# Graphics
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/hw/gralloc.omap3.so:system/vendor/lib/hw/gralloc.omap3.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv2_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so:system/vendor/lib/egl/libEGL_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libpvr2d.so:system/vendor/lib/libpvr2d.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libbltsville_cpu.so:system/vendor/lib/libbltsville_cpu.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libsrv_init.so:system/vendor/lib/libsrv_init.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libOpenVG.so:system/vendor/lib/libOpenVG.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libbltsville_ticpu.so:system/vendor/lib/libbltsville_ticpu.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libIMGegl.so:system/vendor/lib/libIMGegl.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libbltsville_ticpu.2.0.0.10.so:system/vendor/lib/libbltsville_ticpu.2.0.0.10.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libOpenVGU.so:system/vendor/lib/libOpenVGU.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libusc.so:system/vendor/lib/libusc.so \
+    $(LOCAL_PATH)/vendor/imgtec/vendor/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
+
 # drm (only for jb)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor/google/lib/drm/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so \
-    $(LOCAL_PATH)/vendor/google/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
-    $(LOCAL_PATH)/vendor/google/lib/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
-    $(LOCAL_PATH)/vendor/google/lib/libwvm.so:system/vendor/lib/libwvm.so \
+    $(LOCAL_PATH)/vendor/google/vendor/lib/drm/libdrmwvmplugin.so:system/vendor/lib/drm/libdrmwvmplugin.so \
+    $(LOCAL_PATH)/vendor/google/vendor/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
+    $(LOCAL_PATH)/vendor/google/vendor/lib/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
+    $(LOCAL_PATH)/vendor/google/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
 
 ##############################################
 
