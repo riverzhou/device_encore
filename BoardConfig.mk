@@ -20,7 +20,7 @@
 # Processor
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := false
+#TARGET_CPU_SMP := false
 ARCH_ARM_HAVE_ARMV7A := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
