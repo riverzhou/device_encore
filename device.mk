@@ -198,6 +198,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/lib/libPERF.so:system/lib/libPERF.so \
+    $(LOCAL_PATH)/vendor/ti/lib/libLCML.so:system/lib/libLCML.so \
     $(LOCAL_PATH)/vendor/ti/lib/libOMX_Core.so:system/lib/libOMX_Core.so \
     $(LOCAL_PATH)/vendor/ti/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so: \
     $(LOCAL_PATH)/vendor/ti/lib/libOMX.TI.AAC.decode.so:system/lib/libOMX.TI.AAC.decode.so \
