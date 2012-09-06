@@ -107,8 +107,9 @@ BOARD_EGL_CFG := device/bn/encore/egl.cfg
 #Do not use hardware renderer anymore. It's no useful.
 
 # OMAP3
-TARGET_USE_OMAP3_BIONIC_OPTIMIZATION := true
-BOARD_USE_OMAP3_AV_ENHANCE := true
+#TARGET_USE_OMAP3_BIONIC_OPTIMIZATION := true
+TARGET_USE_SPARROW_BIONIC_OPTIMIZATION := true
+#BOARD_USE_OMAP3_AV_ENHANCE := true
 #TARGET_USE_OMAP_COMPAT := true
 
 ## OMAP
