@@ -24,7 +24,7 @@
 #include <sys/mman.h>
 #include <sys/types.h>
 
-#define LOG_TAG "ion"
+#define LOG_TAG "ion_ti"
 #include <cutils/log.h>
 
 #include <linux/ion.h>
