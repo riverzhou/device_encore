@@ -141,6 +141,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/vendor/lib/libbridge.so:system/vendor/lib/libbridge.so \
     $(LOCAL_PATH)/vendor/ti/vendor/lib/libion.so:system/vendor/lib/libion.so \
     $(LOCAL_PATH)/vendor/ti/vendor/bin/dspexec:system/vendor/bin/dspexec \
+    $(LOCAL_PATH)/vendor/ti/vendor/lib/libstagefright.so:system/vendor/lib/libstagefright.so \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/lib/dsp/baseimage.map:system/lib/dsp/baseimage.map \
