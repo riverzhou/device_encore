@@ -43,7 +43,7 @@ BOARD_HAVE_FAKE_GPS := true
 
 BOARD_KERNEL_BASE := 0x20000000
 BOARD_PAGE_SIZE := 0x00000800
-BOARD_KERNEL_CMDLINE := no_console_suspend=1 msmsdcc_sdioirq=1 wire.search_count=5
+#BOARD_KERNEL_CMDLINE := no_console_suspend=1 msmsdcc_sdioirq=1 wire.search_count=5
 TARGET_BOARD_PLATFORM := omap3
 TARGET_BOOTLOADER_BOARD_NAME := encore
 #TARGET_BOARD_INFO_FILE := 
