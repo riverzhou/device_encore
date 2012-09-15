@@ -99,6 +99,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/root/init.encore.rc:/root/init.encore.rc \
     $(LOCAL_PATH)/prebuilt/root/init.usb.rc:/root/init.usb.rc \
     $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:/root/ueventd.encore.rc \
+    $(LOCAL_PATH)/prebuilt/root/fstab.encore:/root/fstab.encore \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \

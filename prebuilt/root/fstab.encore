@@ -1,0 +1,8 @@
+# Android fstab file.
+#<src>              		<mnt_point>  	<type>    	<mnt_flags and options>                               			<fs_mgr_flags>
+
+/dev/block/mmcblk0p5		/system		ext4		ro									wait
+/dev/block/mmcblk0p7		/cache		ext4		noatime,nosuid,nodev,discard,nomblk_io_submit,errors=panic		wait,check
+/dev/block/mmcblk0p6		/data		ext4		noatime,nosuid,nodev,discard,nomblk_io_submit,errors=panic		wait,check
+/dev/block/mmcblk0p2		/rom 		vfat		noatime,nodiratime,uid=1000,gid=1000,fmask=117,dmask=007		sync
+
