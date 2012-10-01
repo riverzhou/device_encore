@@ -1,0 +1,12 @@
+show_progress(0.800000, 60);
+package_extract_file("system.img", "/dev/block/mmcblk0p5");
+show_progress(0.100000, 5);
+mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/boot");
+package_extract_file("kernel", "/boot/uImage");
+package_extract_file("ramdisk.img", "/boot/uRamdisk");
+unmount("/boot");
+show_progress(0.100000, 5);
+mount("ext4", "EMMC", "/dev/block/mmcblk0p5", "/system");
+package_extract_dir("modules", "/system/lib/modules");
+unmount("/system");
+
