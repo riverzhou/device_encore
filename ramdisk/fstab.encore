@@ -4,5 +4,5 @@
 /dev/block/mmcblk0p5		/system		ext4		ro												wait
 /dev/block/mmcblk0p7		/cache		ext4		noatime,nosuid,nodev,discard,nomblk_io_submit,noauto_da_alloc,barrier=0,errors=panic            wait
 /dev/block/mmcblk0p6		/data		ext4		noatime,nosuid,nodev,discard,nomblk_io_submit,noauto_da_alloc,barrier=0,errors=panic            wait
-/dev/block/mmcblk0p2		/rom 		vfat		noatime,nosuid,nodev,discard,nomblk_io_submit,noauto_da_alloc,barrier=0,errors=panic            wait
+/dev/block/mmcblk0p2		/rom 		vfat		uid=1000,gid=1000,fmask=117,dmask=007								sync
 
