@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.encore\
     audio_policy.default \
+    hwcomposer.default \
     power.otter \
 
 # Wifi
