@@ -37,7 +37,7 @@ DEVICE_SOURCE=${PWD}/device/${MANUFACTURER}/${PRODUCT_NAME}/
 KERNEL_SOURCE=${PWD}/kernel/${MANUFACTURER}/${PRODUCT_NAME}/
 METAINF_SOURCE=${PWD}/device/${MANUFACTURER}/${PRODUCT_NAME}/OTA/
 
-RAMDISK_MKIMAGE=" -A ARM -O Linux -T RAMDisk -C none -n 'AOSP encore Ramdisk' "
+RAMDISK_MKIMAGE=" -A ARM -O Linux -T RAMDisk -C none -n AOSP_encore_Ramdisk "
 KERNEL_MKIMAGE=" -A ARM -O Linux -T Kernel -C none -a 80008000 -e 80008000 -n Linux-3.0.8+ "
 #KERNEL_DEFCONFIG=encore_defconfig
 KERNEL_DEFCONFIG=river_defconfig
@@ -62,8 +62,6 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
 	mkdir -p  ${RAMDISK_DIR}/system
 	cp    -f  ${ROOT_DIR}/init      ${RAMDISK_DIR}/init
 	cp    -f  ${ROOT_DIR}/sbin/adbd ${RAMDISK_DIR}/sbin/adbd
-	rm    -rf ${BOOT_DIR}
-	mkdir -p  ${BOOT_DIR}
         cd        ${RAMDISK_DIR}/sbin
         ln    -s  ../init ueventd
         cd        ${TOP_DIR}
@@ -93,9 +91,9 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
 		cd     ${TOP_DIR}
 	fi 
 
-	${TOOLS_DIR}/mkbootfs ${RAMDISK_DIR}  > ${BOOT_DIR}/ramdisk
-        ${TOOLS_DIR}/mkimage ${RAMDISK_MKIMAGE} -d ${BOOT_DIR}/ramdisk 			${PRODUCT_DIR}/uRamdisk
-	${TOOLS_DIR}/mkimage ${KERNEL_MKIMAGE}  -d ${KERNEL_OUT}/arch/arm/boot/zImage 	${PRODUCT_DIR}/uImage
+	${TOOLS_DIR}/mkbootfs ${RAMDISK_DIR} | gzip      > ${PRODUCT_DIR}/ramdisk.gz
+        ${TOOLS_DIR}/mkimage ${RAMDISK_MKIMAGE} 	-d ${PRODUCT_DIR}/ramdisk.gz 		${PRODUCT_DIR}/uRamdisk
+	${TOOLS_DIR}/mkimage ${KERNEL_MKIMAGE}  	-d ${KERNEL_OUT}/arch/arm/boot/zImage 	${PRODUCT_DIR}/uImage
 fi 
 cp ${PRODUCT_DIR}/uRamdisk 		${OTA_DIR}/uRamdisk
 cp ${PRODUCT_DIR}/uImage   		${OTA_DIR}/uImage
