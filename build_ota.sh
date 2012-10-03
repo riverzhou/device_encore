@@ -26,7 +26,6 @@ TESTKEY_PK8=${PWD}/build/target/product/security/testkey.pk8
 PRODUCT_DIR=${PWD}/out/target/product/${PRODUCT_NAME}/
 OTA_DIR=${PRODUCT_DIR}/OTA/
 RAMDISK_DIR=${PRODUCT_DIR}/ramdisk/
-BOOT_DIR=${PRODUCT_DIR}/boot/
 KERNEL_OUT=${PRODUCT_DIR}/kernel/
 ROOT_DIR=${PRODUCT_DIR}/root/
 
