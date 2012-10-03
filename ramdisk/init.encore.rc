@@ -225,9 +225,9 @@ service pvrsrvinit /system/vendor/bin/pvrsrvinit
     oneshot
 
 # Watchdog
-service watchdog /sbin/watchdog
-    user root
-    oneshot
+#service watchdog /sbin/watchdog
+#    user root
+#    oneshot
 
 # Update the battery data heuristics every hour
 service logbatterydata /system/bin/battery_log.sh
@@ -292,10 +292,10 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
+#service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+#    class main
+#    disabled
+#    oneshot
 
 service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
     class main
