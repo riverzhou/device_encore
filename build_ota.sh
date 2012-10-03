@@ -13,8 +13,12 @@ CPU_NUMBER=`grep processor /proc/cpuinfo | wc -l`
 let CPU_NUMBER+=1
 
 PWD=`pwd`
-
 TOP_DIR=${PWD}
+
+GCC_PREFIX=${PWD}/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
+
+WLAN_DIR=${TOP_DIR}/hardware/ti/wlan/mac80211/compat_wl12xx/
+
 TOOLS_DIR=${PWD}/tools/
 TESTKEY_PEM=${PWD}/build/target/product/security/testkey.x509.pem
 TESTKEY_PK8=${PWD}/build/target/product/security/testkey.pk8
@@ -33,15 +37,10 @@ DEVICE_SOURCE=${PWD}/device/${MANUFACTURER}/${PRODUCT_NAME}/
 KERNEL_SOURCE=${PWD}/kernel/${MANUFACTURER}/${PRODUCT_NAME}/
 METAINF_SOURCE=${PWD}/device/${MANUFACTURER}/${PRODUCT_NAME}/OTA/
 
-KERNEL_BASE=0x80000000
-KERNEL_PAGESIZE=4096
-KERNEL_CMDLINE="mem=512M console=tty0 vram=16M omapfb.vram=0:8M"
-#KERNEL_DEFCONFIG=otter_defconfig
+RAMDISK_MKIMAGE=" -A ARM -O Linux -T RAMDisk -C none -n 'AOSP encore Ramdisk' "
+KERNEL_MKIMAGE=" -A ARM -O Linux -T Kernel -C none -a 80008000 -e 80008000 -n Linux-3.0.8+ "
+#KERNEL_DEFCONFIG=encore_defconfig
 KERNEL_DEFCONFIG=river_defconfig
-
-GCC_PREFIX=${PWD}/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
-
-WLAN_DIR=${TOP_DIR}/hardware/ti/wlan/mac80211/compat_wl12xx/
 
 #-----------------------------------------------
 
@@ -70,7 +69,7 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
         cd        ${TOP_DIR}
 
 	if [ "$OLDKERNEL_BUILD" != "true" ] || [ ! -f ${KERNEL_OUT}/arch/arm/boot/zImage ] ; then
-		cp -f ${DEVICE_SOURCE}/river_defconfig  ${KERNEL_SOURCE}/arch/arm/configs/river_defconfig
+		#cp -f ${DEVICE_SOURCE}/river_defconfig  ${KERNEL_SOURCE}/arch/arm/configs/river_defconfig
 
 		rm     -rf ${KERNEL_OUT}
 		mkdir  -p  ${KERNEL_OUT}
@@ -94,10 +93,14 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
 		cd     ${TOP_DIR}
 	fi 
 
-	${TOOLS_DIR}/mkbootfs ${RAMDISK_DIR} | gzip > ${BOOT_DIR}/ramdisk.gz
-	${TOOLS_DIR}/mkbootimg --cmdline "${KERNEL_CMDLINE}" --kernel ${KERNEL_OUT}/arch/arm/boot/zImage --ramdisk ${BOOT_DIR}/ramdisk.gz -o ${PRODUCT_DIR}/boot.img --base ${KERNEL_BASE} --pagesize ${KERNEL_PAGESIZE}
+	${TOOLS_DIR}/mkbootfs ${RAMDISK_DIR}  > ${BOOT_DIR}/ramdisk
+        ${TOOLS_DIR}/mkimage ${RAMDISK_MKIMAGE} -d ${BOOT_DIR}/ramdisk 			${PRODUCT_DIR}/uRamdisk
+	${TOOLS_DIR}/mkimage ${KERNEL_MKIMAGE}  -d ${KERNEL_OUT}/arch/arm/boot/zImage 	${PRODUCT_DIR}/uImage
 fi 
-cp ${PRODUCT_DIR}/boot.img ${OTA_DIR}/boot.img
+cp ${PRODUCT_DIR}/uRamdisk 		${OTA_DIR}/uRamdisk
+cp ${PRODUCT_DIR}/uImage   		${OTA_DIR}/uImage
+cp ${METAINF_SOURCE}/uboot/MLO   	${OTA_DIR}/MLO
+cp ${METAINF_SOURCE}/uboot/u-boot.bin 	${OTA_DIR}/u-boot.bin
 
 if [ "$ONLYBOOT_BUILD" != "true" ] && [ "$OLDKERNEL_BUILD" != "true" ] ; then
 	${TOOLS_DIR}/simg2img ${PRODUCT_DIR}/system.img ${OTA_DIR}/system.img
