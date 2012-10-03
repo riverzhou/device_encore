@@ -1,9 +1,11 @@
-show_progress(0.900000, 5);
+show_progress(0.500000, 10);
 mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/boot");
+package_extract_file("MLO", "/boot/MLO");
+package_extract_file("u-boot.bin", "/boot/u-boot.bin");
 package_extract_file("uImage", "/boot/uImage");
 package_extract_file("uRamdisk", "/boot/uRamdisk");
 unmount("/boot");
-show_progress(0.100000, 5);
+show_progress(0.500000, 10);
 mount("ext4", "EMMC", "/dev/block/mmcblk0p5", "/system");
 package_extract_dir("modules", "/system/lib/modules");
 unmount("/system");
