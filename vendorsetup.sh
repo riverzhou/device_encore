@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo full_encore-eng
+add_lunch_combo full_encore-userdebug
 
