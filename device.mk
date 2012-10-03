@@ -19,7 +19,6 @@
 #
 # Everything in this directory will become public
 
-
 ##############################################
 
 # Hardware HALs
@@ -66,9 +65,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
@@ -241,13 +238,15 @@ PRODUCT_PROPERTY_OVERRIDES := \
     dalvik.vm.heapstartsize=5m \
     dalvik.vm.heapgrowthlimit=42m \
     dalvik.vm.heapsize=128m \
+    drm.service.enabled=true \
     com.ti.omap_enhancement=true \
     omap.enhancement=true \
     persist.lab126.chargeprotect=1 \
     persist.service.adb.enable=1 \
     persist.sys.purgeable_assets=1 \
     persist.sys.root_access=3 \
-    persist.sys.usb.config=mass_storage,adb \
+    persist.sys.usb.config=adb,mass_storage \
+    ro.carrier=wifi-only \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     ro.crypto.state=unencrypted \
@@ -256,7 +255,9 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072 \
     ro.sf.lcd_density=160 \
     ro.sf.hwrotation=270 \
+    tf.enable=y \
     wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
 
 ##############################################
 
