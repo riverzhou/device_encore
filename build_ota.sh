@@ -38,10 +38,6 @@ KERNEL_DEFCONFIG=river_defconfig
 
 GCC_PREFIX=${PWD}/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
 
-SGX_BASE=${TOP_DIR}/hardware/ti/sgx540/eurasia_km/eurasiacon/
-SGX_SOURCE=${SGX_BASE}/build/linux2/omap4430_android
-SGX_DIR=${PRODUCT_DIR}/target/
-
 WLAN_DIR=${TOP_DIR}/hardware/ti/wlan/mac80211/compat_wl12xx/
 
 #-----------------------------------------------
@@ -77,16 +73,6 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
 		export KERNEL_CROSS_COMPILE=${GCC_PREFIX}
 		make   -C ${KERNEL_SOURCE} O=${KERNEL_OUT}  ${KERNEL_DEFCONFIG}
 		make   -C ${KERNEL_SOURCE} O=${KERNEL_OUT}  -j ${CPU_NUMBER}
-
-		export KERNELDIR=${KERNEL_OUT}
-		export KERNELSRC=${KERNEL_SOURCE}
-		cd     ${SGX_SOURCE}
-		make   clean 
-		make   -j ${CPU_NUMBER} TARGET_PRODUCT="blaze_tablet" BUILD=release TARGET_SGX=540 PLATFORM_VERSION=4.0
-        	mkdir  -p ${RAMDISK_DIR}/modules
-		cp     ${SGX_DIR}/pvrsrvkm_sgx540_120.ko ${RAMDISK_DIR}/modules
-		make   clean 
-		cd     ${TOP_DIR}
 
 		rm     -rf ${KERNEL_MODULES_OUT}
 		mkdir  -p ${KERNEL_MODULES_OUT}

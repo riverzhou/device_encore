@@ -21,14 +21,6 @@
 
 
 ##############################################
-# omap3.mk
-#PRODUCT_PACKAGES += \
-#    libdomx \
-#    libskiahw \
-#    libstagefrighthw \
-#    dspexec \
-#    libbridge \
-#    overlay.omap3 \
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
@@ -37,22 +29,13 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.encore\
     audio_policy.default \
-    hwcomposer.default \
-
-#    uim-sysfs \
-
-PRODUCT_PACKAGES += \
-    libinvensense_mpl \
-    libaudioutils \
-
-#    libion \
+    power.otter \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    lib_driver_cmd_wl12xx \
     dhcpcd.conf \
+    hostapd.conf \
     wpa_supplicant.conf \
-    libtiOsLib \
 
 # Sound
 PRODUCT_PACKAGES += \
@@ -62,13 +45,9 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    librs_jni \
     com.android.future.usb.accessory \
-    libjni_pinyinime \
     make_ext4fs \
     setup_fs \
-    calibrator \
-    iontest \
     busybox \
     su \
     strace \
@@ -76,6 +55,7 @@ PRODUCT_PACKAGES += \
 # Apps
 PRODUCT_PACKAGES += \
     FileManager \
+    Superuser \
 
 ##############################################
 
@@ -83,41 +63,36 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 
 #---------------------------------------
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/root/init.encore.rc:/root/init.encore.rc \
-    $(LOCAL_PATH)/prebuilt/root/init.usb.rc:/root/init.usb.rc \
-    $(LOCAL_PATH)/prebuilt/root/ueventd.encore.rc:/root/ueventd.encore.rc \
-    $(LOCAL_PATH)/prebuilt/root/fstab.encore:/root/fstab.encore \
-    $(LOCAL_PATH)/prebuilt/root/init:/root/init \
-    $(LOCAL_PATH)/prebuilt/root/sbin/adbd:/root/sbin/adbd \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
     $(LOCAL_PATH)/prebuilt/bin/battery_log.sh:/system/bin/battery_log.sh \
     $(LOCAL_PATH)/prebuilt/bin/klog.sh:/system/bin/klog.sh \
 
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
+#    $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
+#    $(LOCAL_PATH)/prebuilt/etc/init.d/02oom:system/etc/init.d/02oom \
+#    $(LOCAL_PATH)/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/sysctl.conf:system/etc/sysctl.conf \
     $(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:/system/etc/audio_policy.conf \
     $(LOCAL_PATH)/prebuilt/etc/gps.conf:/system/etc/gps.conf \
     $(LOCAL_PATH)/prebuilt/etc/vold.fstab:/system/etc/vold.fstab \
     $(LOCAL_PATH)/prebuilt/etc/wifi/TQS_S_2.6.ini:system/etc/wifi/TQS_S_2.6.ini \
-
-#    $(LOCAL_PATH)/prebuilt/etc/init.d/01sysctl:system/etc/init.d/01sysctl \
-#    $(LOCAL_PATH)/prebuilt/etc/init.d/02oom:system/etc/init.d/02oom \
-#    $(LOCAL_PATH)/prebuilt/etc/init.d/03mount:system/etc/init.d/03mount \
 
 # key mapping and touchscreen files
 PRODUCT_COPY_FILES += \
@@ -133,11 +108,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/etc/media_codecs.xml:/system/etc/media_codecs.xml \
 
+# wifi
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
     $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
-    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin \
+    $(LOCAL_PATH)/vendor/ti/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/vendor/lib/hw/libstagefrighthw.so:system/vendor/lib/hw/libstagefrighthw.so \
@@ -200,6 +176,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/lib/dsp/720p_wmv9vdec_sn.dll64P:system/lib/dsp/720p_wmv9vdec_sn.dll64P \
     $(LOCAL_PATH)/vendor/ti/lib/dsp/postprocessor_dualout.dll64P:system/lib/dsp/postprocessor_dualout.dll64P \
 
+# OMX
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/ti/lib/libPERF.so:system/lib/libPERF.so \
     $(LOCAL_PATH)/vendor/ti/lib/libLCML.so:system/lib/libLCML.so \
@@ -261,62 +238,31 @@ PRODUCT_COPY_FILES += \
 ##############################################
 
 PRODUCT_PROPERTY_OVERRIDES := \
-    dalvik.vm.stack-trace-file=/data/tmp/traces.txt \
-    ro.opengles.version=131072 \
-    ro.sf.hwrotation=270 \
-    ro.sf.lcd_density=160 \
-    ro.com.google.locationfeatures=1 \
-    ro.com.google.networklocation=1 \
-    ro.cwm.forbid_format = /bootloader,/dfs,/backup,/splash \
-    ro.kernel.android.bootanim=1 \
-    ro.crypto.state=unencrypted \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=120 \
-    wifi.supplicant_scan_interval=180 \
-    persist.sys.usb.config=mass_storage,adb \
-    persist.sys.purgeable_assets=1 \
-    persist.sys.root_access=3 \
-    persist.service.adb.enable=1 \
-    windowsmgr.max_events_per_sec=200 \
-    pm.sleep_mode=1 \
+    dalvik.vm.heapstartsize=5m \
+    dalvik.vm.heapgrowthlimit=42m \
+    dalvik.vm.heapsize=128m \
     com.ti.omap_enhancement=true \
     omap.enhancement=true \
-    ro.emmc=1 \
-
-#    dalvik.vm.heapstartsize=5m \
-#    dalvik.vm.heapgrowthlimit=42m \
-#    dalvik.vm.heapsize=128m \
-
-##############################################
-
-ifeq ($(TARGET_PREBUILT_BOOTLOADER),)
-    LOCAL_BOOTLOADER := $(LOCAL_PATH)/prebuilt/boot/MLO
-else
-    LOCAL_BOOTLOADER := $(TARGET_PREBUILT_BOOTLOADER)
-endif
-
-ifeq ($(TARGET_PREBUILT_2NDBOOTLOADER),)
-    LOCAL_2NDBOOTLOADER := $(LOCAL_PATH)/prebuilt/boot/u-boot.bin
-else
-    LOCAL_2NDBOOTLOADER := $(TARGET_PREBUILT_2NDBOOTLOADER)
-endif
-
-# Boot files
-PRODUCT_COPY_FILES += \
-    $(LOCAL_BOOTLOADER):bootloader \
-    $(LOCAL_2NDBOOTLOADER):2ndbootloader
+    persist.lab126.chargeprotect=1 \
+    persist.service.adb.enable=1 \
+    persist.sys.purgeable_assets=1 \
+    persist.sys.root_access=3 \
+    persist.sys.usb.config=mass_storage,adb \
+    ro.com.google.locationfeatures=1 \
+    ro.com.google.networklocation=1 \
+    ro.crypto.state=unencrypted \
+    ro.hwc.legacy_api=true \
+    ro.kernel.android.bootanim=1 \
+    ro.opengles.version=131072 \
+    ro.sf.lcd_density=160 \
+    ro.sf.hwrotation=270 \
+    wifi.interface=wlan0 \
 
 ##############################################
 
-PRODUCT_AAPT_CONFIG := large mdpi
-
-PRODUCT_AAPT_PREF_CONFIG := large
-
-PRODUCT_CHARACTERISTICS := tablet
-
-DEVICE_PACKAGE_OVERLAYS := device/bn/encore/overlay/aosp
-
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+PRODUCT_AAPT_CONFIG 		:= large mdpi
+PRODUCT_AAPT_PREF_CONFIG 	:= large
+PRODUCT_CHARACTERISTICS 	:= tablet
+DEVICE_PACKAGE_OVERLAYS 	:= device/bn/encore/overlay
+PRODUCT_TAGS 			+= dalvik.gc.type-precise
 

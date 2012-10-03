@@ -12,14 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+LOCAL_PATH := $(call my-dir)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, device/bn/encore/device.mk)
+include $(CLEAR_VARS)
 
-PRODUCT_NAME 		:= full_encore
-PRODUCT_DEVICE 		:= encore
-PRODUCT_BRAND 		:= BN
-PRODUCT_MODEL 		:= NookColor
-PRODUCT_MANUFACTURER 	:= BN
+LOCAL_MODULE := power.encore
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SRC_FILES := power.c
+LOCAL_SHARED_LIBRARIES := liblog
+LOCAL_MODULE_TAGS := optional
 
+include $(BUILD_SHARED_LIBRARY)
