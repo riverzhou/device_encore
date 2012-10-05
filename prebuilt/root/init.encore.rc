@@ -282,6 +282,5 @@ service baseimage /system/vendor/bin/dspexec /system/lib/dsp/baseimage.dof
     oneshot
 
 on property:sys.boot_completed=1
-    log "== init.encore.rc: on property:sys.boot_completed=1 -----------------------"
 
 
