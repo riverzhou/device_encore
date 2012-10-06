@@ -81,6 +81,9 @@ BOARD_USE_OMAP3_AV_ENHANCE 		:= true
 # Misc.
 BOARD_NEEDS_CUTILS_LOG                  := true
 
+# libion
+TARGET_HAS_CUSTOM_LIBION                := true
+
 ADDITIONAL_DEFAULT_PROPERTIES           += \
     ro.secure=0 \
     ro.allow.mock.location=0 \
