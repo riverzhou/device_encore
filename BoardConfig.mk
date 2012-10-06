@@ -22,10 +22,8 @@ ARCH_ARM_HAVE_ARMV7A                    := true
 TARGET_ARCH_VARIANT                     := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER              := true
 
-#TARGET_GLOBAL_CFLAGS                    += -mtune=cortex-a8 -mcpu=cortex-a8 -mfpu=neon
-#TARGET_GLOBAL_CPPFLAGS                  += -mtune=cortex-a8 -mcpu=cortex-a8 -mfpu=neon
-#TARGET_arm_CFLAGS                       := -O2 -fomit-frame-pointer -fstrict-aliasing -funswitch-loops fmodulo-sched -fmodulo-sched-allow-regmoves
-#TARGET_thumb_CFLAGS                     := -mthumb -Os -fomit-frame-pointer -fstrict-aliasing
+TARGET_GLOBAL_CFLAGS                    += -mtune=cortex-a8 -mcpu=cortex-a8 -mfpu=neon
+TARGET_GLOBAL_CPPFLAGS                  += -mtune=cortex-a8 -mcpu=cortex-a8 -mfpu=neon
 
 TARGET_BOARD_PLATFORM                   := omap3
 TARGET_BOOTLOADER_BOARD_NAME            := encore
@@ -83,10 +81,4 @@ BOARD_NEEDS_CUTILS_LOG                  := true
 
 # libion
 TARGET_HAS_CUSTOM_LIBION                := true
-
-ADDITIONAL_DEFAULT_PROPERTIES           += \
-    ro.secure=0 \
-    ro.allow.mock.location=0 \
-    ro.debuggable=1 \
-    persist.sys.usb.config=mass_storage,adb \
 
