@@ -15,7 +15,6 @@ on early-init
 
     export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
-    export DOWNLOAD_CACHE /cache/download
     export PHONE_STORAGE /storage/sdcard0
     export DSP_PATH /system/lib/dsp
     export DEFAULT_BASEIMAGE /system/lib/dsp/baseimage.dof
@@ -91,9 +90,6 @@ on post-fs-data
 # Allow everybody to read the xt_qtaguid resource tracking misc dev.
 # This is needed by any process that uses socket tagging.
     chmod 0644 /dev/xt_qtaguid
-
-# make dir for cache
-    mkdir /cache/download 0777 system system
 
 # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
