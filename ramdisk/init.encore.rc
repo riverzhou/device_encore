@@ -25,9 +25,9 @@ on init
     write /sys/kernel/debug/pm_debug/enable_off_mode 1
 
 # Enable Smart Reflex in debugfs
-    write /sys/kernel/debug/pm_debug/smartreflex/sr_core/autocomp 1
-    write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
-    write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
+#    write /sys/kernel/debug/pm_debug/smartreflex/sr_core/autocomp 1
+#    write /sys/kernel/debug/pm_debug/smartreflex/sr_iva/autocomp 1
+#    write /sys/kernel/debug/pm_debug/smartreflex/sr_mpu/autocomp 1
 
 on fs
 # mount partitions
