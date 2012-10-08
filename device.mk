@@ -37,6 +37,7 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd.conf \
     wpa_supplicant.conf \
+    calibrator \
 
 # Sound
 PRODUCT_PACKAGES += \
