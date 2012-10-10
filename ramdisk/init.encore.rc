@@ -32,6 +32,7 @@ on init
 on fs
 # mount partitions
     mount_all  /fstab.encore
+    mount ext4 /dev/block/mmcblk0p5 /system wait ro remount
 
 on post-fs
 # Load Modules
