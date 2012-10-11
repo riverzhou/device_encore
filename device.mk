@@ -238,6 +238,9 @@ PRODUCT_COPY_FILES += \
 ##############################################
 
 PRODUCT_PROPERTY_OVERRIDES := \
+    dalvik.vm.heapstartsize=5m \
+    dalvik.vm.heapgrowthlimit=42m \
+    dalvik.vm.heapsize=128m \
     drm.service.enabled=true \
     persist.service.adb.enable=1 \
     persist.sys.purgeable_assets=1 \
@@ -262,4 +265,3 @@ PRODUCT_CHARACTERISTICS 	:= tablet
 DEVICE_PACKAGE_OVERLAYS 	:= device/bn/encore/overlay
 PRODUCT_TAGS 			+= dalvik.gc.type-precise
 
-$(call inherit-product-if-exists, frameworks/native/build/tablet-dalvik-heap.mk)
