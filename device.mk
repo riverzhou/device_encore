@@ -239,8 +239,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES := \
     dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapgrowthlimit=42m \
-    dalvik.vm.heapsize=128m \
+    dalvik.vm.heapgrowthlimit=64m \
+    dalvik.vm.heapsize=256m \
     drm.service.enabled=true \
     persist.service.adb.enable=1 \
     persist.sys.purgeable_assets=1 \
