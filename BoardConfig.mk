@@ -76,6 +76,9 @@ endif
 # OMAP3 ENHANCE
 BOARD_USE_OMAP3_AV_ENHANCE 		:= true
 
+# bionic
+TARGET_USE_OMAP4_BIONIC_OPTIMIZATION    := true
+
 # Misc.
 BOARD_NEEDS_CUTILS_LOG                  := true
 
