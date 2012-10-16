@@ -76,6 +76,11 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
 		make   -C ${KERNEL_SOURCE} O=${KERNEL_OUT}  ${KERNEL_DEFCONFIG}
 		make   -C ${KERNEL_SOURCE} O=${KERNEL_OUT}  -j ${CPU_NUMBER}
 
+                if [ ! -f ${KERNEL_OUT}/arch/arm/boot/zImage ] ; then
+                        echo 'kernel build failed ... '
+                        exit 1
+                fi
+
 		rm     -rf ${KERNEL_MODULES_OUT}
 		mkdir  -p ${KERNEL_MODULES_OUT}
 		cd     ${WLAN_DIR}
