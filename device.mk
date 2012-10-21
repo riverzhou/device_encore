@@ -15,7 +15,7 @@
 #
 
 # This file includes all definitions that apply to ALL encore devices, and
-# are also specific to otter devices
+# are also specific to encore devices
 #
 # Everything in this directory will become public
 
@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.encore\
     audio_policy.default \
-    power.otter \
+    power.encore \
 
 #    hwcomposer.default \
 
