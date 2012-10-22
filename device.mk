@@ -227,7 +227,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
     $(LOCAL_PATH)/vendor/imgtec/vendor/lib/libusc.so:system/vendor/lib/libusc.so \
     $(LOCAL_PATH)/vendor/imgtec/vendor/bin/pvrsrvinit:system/vendor/bin/pvrsrvinit \
-    $(LOCAL_PATH)/vendor/imgtec/vendor/etc/powervr.ini:system/vendor/etc/powervr.ini \
 
 # drm (only for jb)
 PRODUCT_COPY_FILES += \
