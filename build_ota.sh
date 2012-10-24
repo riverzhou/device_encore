@@ -105,8 +105,6 @@ if [ "$OLDBOOT_BUILD" != "true" ] || [ ! -f ${PRODUCT_DIR}/boot.img ] ; then
 fi 
 cp ${PRODUCT_DIR}/uRamdisk 		${OTA_DIR}/uRamdisk
 cp ${PRODUCT_DIR}/uImage   		${OTA_DIR}/uImage
-cp ${METAINF_SOURCE}/uboot/MLO   	${OTA_DIR}/MLO
-cp ${METAINF_SOURCE}/uboot/u-boot.bin 	${OTA_DIR}/u-boot.bin
 
 if [ "$ONLYBOOT_BUILD" != "true" ] && [ "$OLDKERNEL_BUILD" != "true" ] ; then
 	${TOOLS_DIR}/simg2img ${PRODUCT_DIR}/system.img ${OTA_DIR}/system.img
