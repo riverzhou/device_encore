@@ -93,21 +93,21 @@
 #define MIXER_MUX_VX1                       "MUX_VX1"
 #define MIXER_MUX_UL10                      "MUX_UL10"
 #define MIXER_MUX_UL11                      "MUX_UL11"
-#define SP_DRIVER_MUTE 						"SP driver mute"
-#define SP_ANALOG_GAIN						"SP Analog Gain"
-#define DAC_PLAYBACK_VOLUME					"DAC Playback Volume"
-#define RIGHT_DAC_INPUT_SELECTION			"Right DAC input selection"
-#define LEFT_DAC_INPUT_SELECTION			"Left DAC input selection"
-#define DAC_L_TO_LEFT_OUTPUT_MIXER			"Left Output Mixer From DAC_L"
-#define DAC_R_TO_RIGHT_OUTPUT_MIXER			"Right Output Mixer From DAC_R"
-#define HP_DRIVER_MUTE 						"HP driver mute"
-#define HP_ANALOG_GAIN						"HP Analog Gain"
-#define HP_CM_VOLTAGE_CTL					"HP Output common - mode voltage control"
-#define M_INPUT_MIXER						"M_Input_Mixer CM_PGA_CNTL"
-#define P_INPUT_MIXER						"P_Input_Mixer MIC1LM_PGA_CNTL"
-#define MIC_PGA_GAIN						"ADC MIC_PGA GAIN"
-#define ADC_COARSE_GAIN						"ADC COARSE GAIN"
-#define DL1_MM_EXT_SWITCH					"DL1 MM_EXT Switch"
+#define SP_DRIVER_MUTE 			    "SP driver mute"
+#define SP_ANALOG_GAIN			    "SP Analog Gain"
+#define DAC_PLAYBACK_VOLUME		    "DAC Playback Volume"
+#define RIGHT_DAC_INPUT_SELECTION	    "Right DAC input selection"
+#define LEFT_DAC_INPUT_SELECTION	    "Left DAC input selection"
+#define DAC_L_TO_LEFT_OUTPUT_MIXER	    "Left Output Mixer From DAC_L"
+#define DAC_R_TO_RIGHT_OUTPUT_MIXER	    "Right Output Mixer From DAC_R"
+#define HP_DRIVER_MUTE 			    "HP driver mute"
+#define HP_ANALOG_GAIN			    "HP Analog Gain"
+#define HP_CM_VOLTAGE_CTL		    "HP Output common - mode voltage control"
+#define M_INPUT_MIXER			    "M_Input_Mixer CM_PGA_CNTL"
+#define P_INPUT_MIXER			    "P_Input_Mixer MIC1LM_PGA_CNTL"
+#define MIC_PGA_GAIN			    "ADC MIC_PGA GAIN"
+#define ADC_COARSE_GAIN			    "ADC COARSE GAIN"
+#define DL1_MM_EXT_SWITCH		    "DL1 MM_EXT Switch"
 /* Mixer control gain and route values */
 #define MIXER_ABE_GAIN_0DB                  120
 #define MIXER_PLAYBACK_HS_DAC               "HS DAC"
@@ -126,15 +126,9 @@
 #define MIXER_450HZ_HIGH_PASS               "450Hz High-pass"
 #define MIXER_0DB_HIGH_PASS                 "High-pass 0dB"
 #define MIXER_FLAT_RESPONSE                 "Flat Response"
-#define RIGHT_DATA							"right data"
-#define LEFT_DATA							"left data"
-#define VOLTAGE								"5 V "
-
-/* ALSA cards for OMAP4 */
-#define CARD_OMAP4_ABE 0
-#define CARD_OMAP4_HDMI 1
-#define CARD_OMAP4_USB 2
-#define CARD_BLAZE_DEFAULT CARD_OMAP4_ABE
+#define RIGHT_DATA			    "right data"
+#define LEFT_DATA			    "left data"
+#define VOLTAGE				    "5 V "
 
 /* ALSA ports for OMAP4 */
 #define PORT_MM_LP	0
@@ -3010,7 +3004,7 @@ static int adev_open(const hw_module_t* module, const char* name,
     adev->hw_device.close_input_stream = adev_close_input_stream;
     adev->hw_device.dump = adev_dump;
 
-    adev->mixer = mixer_open(CARD_OMAP4_ABE);
+    adev->mixer = mixer_open(0);
     if (!adev->mixer) {
         free(adev);
         ALOGE("Unable to open the mixer, aborting.");
