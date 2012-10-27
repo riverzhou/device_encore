@@ -29,8 +29,7 @@ PRODUCT_PACKAGES += \
     audio.primary.encore\
     audio_policy.default \
     power.encore \
-
-#    hwcomposer.default \
+    hwcomposer.default \
 
 # Wifi
 PRODUCT_PACKAGES += \
