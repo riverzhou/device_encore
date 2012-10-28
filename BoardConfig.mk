@@ -34,7 +34,7 @@ USE_CAMERA_STUB                         := true
 #TARGET_PROVIDES_INIT_RC                := true
 
 BOARD_EGL_CFG 				:= device/bn/encore/egl.cfg
-#USE_OPENGL_RENDERER                    := true
+USE_OPENGL_RENDERER			:= true
 
 TARGET_NO_BOOTLOADER                    := true
 TARGET_NO_KERNEL                        := true
